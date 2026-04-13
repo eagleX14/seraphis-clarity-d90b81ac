@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import seraphisLogo from "@/assets/seraphis-logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -21,10 +22,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <nav className="section-container flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-xl md:text-2xl font-heading font-bold text-primary">Seraphis</span>
-          <span className="hidden sm:inline text-xs text-muted-foreground font-body leading-tight max-w-[140px]">
-            IT & Data Solutions
-          </span>
+          <img src={seraphisLogo} alt="Seraphis IT and Data Solutions" className="h-9 md:h-11 w-auto" />
         </Link>
 
         {/* Desktop nav */}
