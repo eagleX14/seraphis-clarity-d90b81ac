@@ -1,0 +1,61 @@
+name: Build and deploy Vite app to Azure App Service
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Vite app
+        run: npm run build
+
+      - name: Upload build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: vite-build
+          path: dist
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: vite-build
+          path: dist
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: 0b6680e7-9643-45ea-92be-4a8409c8e25b
+          tenant-id: 7455aefc-0cf3-4f83-8ac3-735bb60eb106
+          subscription-id: 6cb46fbe-0f19-4ee6-9671-c6b2c713be46
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'seraphis'
+          slot-name: 'Production'
+          package: dist
