@@ -20,13 +20,25 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
-      <nav className="section-container flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={seraphisLogo} alt="Seraphis IT and Data Solutions" className="h-9 md:h-11 w-auto" />
+      <nav className="section-container flex items-center justify-between py-3 min-h-[84px] md:min-h-[96px]">
+        <Link to="/" className="flex items-center gap-3 min-w-0">
+          <img
+            src={seraphisLogo}
+            alt="Seraphis IT and Data Solutions"
+            className="h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 object-contain shrink-0"
+          />
+
+          <div className="flex flex-col leading-tight min-w-0">
+            <span className="text-xs sm:text-sm md:text-base font-semibold text-foreground">
+              Seraphis IT and Data Solutions
+            </span>
+            <span className="mt-0.5 text-[9px] sm:text-[10px] md:text-[11px] italic text-muted-foreground">
+              Using tech to solve Modern Business problems
+            </span>
+          </div>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden xl:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -42,25 +54,23 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <Button variant="hero" size="sm" asChild>
             <Link to="/contact">Book a Consultation</Link>
           </Button>
         </div>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden p-2 text-seraphis-body hover:text-primary"
+          className="xl:hidden p-2 text-seraphis-body hover:text-primary"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-card border-b border-border animate-fade-in">
+        <div className="xl:hidden bg-card border-b border-border animate-fade-in">
           <div className="section-container py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
@@ -78,7 +88,9 @@ const Navbar = () => {
             ))}
             <div className="pt-2">
               <Button variant="hero" className="w-full" asChild>
-                <Link to="/contact" onClick={() => setMobileOpen(false)}>Book a Consultation</Link>
+                <Link to="/contact" onClick={() => setMobileOpen(false)}>
+                  Book a Consultation
+                </Link>
               </Button>
             </div>
           </div>
