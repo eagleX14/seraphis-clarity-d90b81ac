@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,35 +6,35 @@
 
 @layer base {
   :root {
-    --background: 210 33% 98%;
-    --foreground: 222 47% 11%;
+    --background: 210 40% 98%;
+    --foreground: 222 47% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 222 47% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 222 47% 10%;
 
-    --primary: 221 83% 53%;
+    --primary: 220 79% 27%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 213 32% 95%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 32 98% 54%;
+    --secondary-foreground: 222 47% 10%;
 
-    --muted: 214 32% 95%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 214 32% 94%;
+    --muted-foreground: 216 16% 39%;
 
-    --accent: 214 95% 93%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 199 92% 92%;
+    --accent-foreground: 222 47% 10%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 78% 54%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 213 27% 89%;
-    --input: 213 27% 89%;
-    --ring: 221 83% 53%;
+    --border: 213 28% 86%;
+    --input: 213 28% 86%;
+    --ring: 199 92% 48%;
 
-    --radius: 0.625rem;
+    --radius: 0.8rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -45,97 +45,105 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Seraphis custom tokens */
-    --seraphis-sky: 199 89% 48%;
-    --seraphis-sky-light: 199 92% 74%;
-    --seraphis-surface: 210 33% 98%;
-    --seraphis-surface-alt: 214 40% 95%;
-    --seraphis-heading: 222 47% 11%;
-    --seraphis-body: 215 25% 27%;
-    --seraphis-muted: 215 16% 47%;
-    --seraphis-card-shadow: 0 4px 24px -4px rgba(15, 23, 42, 0.08);
-    --seraphis-card-shadow-hover: 0 8px 32px -4px rgba(15, 23, 42, 0.12);
-  }
-
-  .dark {
-    --background: 222 47% 5%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 221 83% 53%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 217 33% 17%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 213 27% 84%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --seraphis-sky: 194 95% 47%;
+    --seraphis-sky-light: 190 95% 72%;
+    --seraphis-orange: 32 98% 54%;
+    --seraphis-navy: 221 71% 16%;
+    --seraphis-deep: 222 82% 7%;
+    --seraphis-surface: 210 40% 98%;
+    --seraphis-surface-alt: 212 55% 95%;
+    --seraphis-heading: 222 55% 12%;
+    --seraphis-body: 215 30% 26%;
+    --seraphis-muted: 216 16% 42%;
+    --seraphis-card-shadow: 0 14px 45px -22px rgba(15, 23, 42, 0.34);
+    --seraphis-card-shadow-hover: 0 25px 60px -25px rgba(15, 23, 42, 0.45);
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    text-rendering: optimizeLegibility;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(14, 165, 233, 0.12), transparent 28rem),
+      radial-gradient(circle at 100% 15%, rgba(249, 115, 22, 0.09), transparent 26rem),
+      hsl(var(--background));
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold tracking-tight text-seraphis-heading;
-  }
-
+  h1, h2, h3, h4, h5, h6 { @apply font-heading font-extrabold tracking-tight text-seraphis-heading; }
   h1 { @apply text-4xl md:text-5xl lg:text-6xl leading-tight; }
   h2 { @apply text-3xl md:text-4xl leading-tight; }
   h3 { @apply text-2xl md:text-3xl; }
   h4 { @apply text-xl md:text-2xl; }
-
-  p {
-    @apply text-seraphis-body leading-relaxed;
-  }
+  p { @apply text-seraphis-body leading-relaxed; }
 }
 
 @layer components {
-  .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
-  }
+  .section-padding { @apply py-16 md:py-20 lg:py-24; }
 
-  .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
+  .section-container { @apply mx-auto w-full max-w-[1540px] px-4 sm:px-6 lg:px-8 2xl:px-10; }
 
   .seraphis-card {
-    @apply bg-card rounded-xl border border-border p-6 md:p-8;
+    @apply rounded-2xl border border-border bg-card p-6 md:p-8;
     box-shadow: var(--seraphis-card-shadow);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
   }
-
   .seraphis-card:hover {
     box-shadow: var(--seraphis-card-shadow-hover);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    border-color: hsl(var(--seraphis-sky) / 0.35);
   }
 
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-seraphis-sky;
+  .gradient-text { @apply bg-clip-text text-transparent bg-gradient-to-r from-seraphis-sky via-primary to-secondary; }
+
+  .hero-shell {
+    @apply relative overflow-hidden bg-seraphis-heading text-white;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(14, 165, 233, 0.32), transparent 25rem),
+      radial-gradient(circle at 82% 14%, rgba(249, 115, 22, 0.25), transparent 22rem),
+      linear-gradient(135deg, hsl(var(--seraphis-deep)), hsl(var(--seraphis-navy)) 54%, #0c4a6e);
   }
 
-  .katex-display {
-    @apply my-4 overflow-x-auto;
+  .hero-shell h1,
+  .hero-shell h2,
+  .hero-shell h3 { @apply text-white; }
+
+  .hero-shell p { color: rgba(255,255,255,0.78); }
+
+  .glass-card { @apply rounded-2xl border border-white/15 bg-white/10 p-5 shadow-xl backdrop-blur-md; }
+
+  .sales-pill { @apply inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.22em] text-seraphis-sky-light; }
+
+  .section-surface {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.92), rgba(239,246,255,0.72)),
+      radial-gradient(circle at 95% 5%, rgba(249,115,22,0.12), transparent 18rem),
+      radial-gradient(circle at 0% 100%, rgba(14,165,233,0.12), transparent 18rem);
   }
+
+  .dark-band {
+    @apply bg-seraphis-heading text-white;
+    background:
+      linear-gradient(135deg, hsl(var(--seraphis-deep)), hsl(var(--seraphis-navy))),
+      radial-gradient(circle at 15% 20%, rgba(14,165,233,0.26), transparent 25rem);
+  }
+  .dark-band h2,
+  .dark-band h3,
+  .dark-band h4 { @apply text-white; }
+  .dark-band p { color: rgba(255,255,255,0.76); }
+
+  .image-panel { @apply relative overflow-hidden rounded-3xl shadow-2xl; }
+  .image-panel::after { content: ""; @apply absolute inset-0 bg-gradient-to-tr from-seraphis-heading/45 via-transparent to-secondary/20; }
+
+  .accent-line { @apply h-1 w-14 rounded-full bg-secondary; }
+
+  .katex-display { @apply my-4 overflow-x-auto; }
+}
+
+@layer components {
+  .hero-shell .text-primary { color: hsl(var(--seraphis-sky-light)); }
+  .hero-shell .text-muted-foreground { color: rgba(255,255,255,0.76); }
+  .dark-band .text-muted-foreground { color: rgba(255,255,255,0.76); }
 }

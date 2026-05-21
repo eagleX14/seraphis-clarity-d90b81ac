@@ -1,103 +1,204 @@
-import SectionHeading from "@/components/SectionHeading";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import SectionHeading from "@/components/SectionHeading";
+import SEO from "@/components/SEO";
 import retailImg from "@/assets/industry-retail.jpg";
 import logisticsImg from "@/assets/industry-logistics.jpg";
 import manufacturingImg from "@/assets/industry-manufacturing.jpg";
+import schoolsImg from "@/assets/ind-schools.jpg";
+import professionalImg from "@/assets/ind-professional.jpg";
+import healthcareImg from "@/assets/ind-healthcare.jpg";
+import constructionImg from "@/assets/ind-construction.jpg";
+import financeImg from "@/assets/ind-finance.jpg";
 import mediaImg from "@/assets/industry-media.jpg";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 const industries = [
   {
-    img: retailImg,
+    title: "Schools & Colleges",
+    image: schoolsImg,
+    overview:
+      "Schools need more than email. They need safer handling of learner and staff information, better collaboration between administration and academics, and more structured control over communication and documents.",
+    symptoms: [
+      "Staff rely on personal or loosely controlled email and file storage.",
+      "Learner, staff and governance records are difficult to secure and organise consistently.",
+      "Communication with parents, educators and administration is fragmented.",
+    ],
+    support:
+      "Seraphis helps schools with Microsoft 365 licensing, collaboration setup, security baselines, document control and the wider cloud and reporting foundation needed for a more modern environment.",
+    offerings: "Microsoft 365 Education, Business Premium for administration, cybersecurity controls, Azure advisory and structured collaboration environments.",
+  },
+  {
+    title: "Legal, Accounting & Professional Services",
+    image: professionalImg,
+    overview:
+      "Professional services businesses depend heavily on trusted communication, document accuracy, client confidentiality and consistent internal coordination.",
+    symptoms: [
+      "Client documents sit across email inboxes, shared folders and personal devices.",
+      "Sensitive records are exposed to weak access control or inconsistent file practices.",
+      "Reporting, review and approvals depend too much on manual coordination.",
+    ],
+    support:
+      "Seraphis helps professional firms strengthen Microsoft 365 foundations, document control, cloud structure, reporting visibility and security posture.",
+    offerings: "Business Standard or Premium, security add-ons, Azure cloud support, reporting and analytics improvements.",
+  },
+  {
     title: "Retail & E-commerce",
-    losses: [
-      { name: "Shrinkage & Theft", detail: "Inventory shrinkage — from internal theft, vendor fraud, and administrative errors — costs retailers 1.4–2.0% of net sales annually. For a $500M retailer, that's $7–10M per year.", economic: "Every unit lost to shrinkage is revenue forfeited at full margin." },
-      { name: "Stockouts & Lost Sales", detail: "Out-of-stock events cost retailers up to 4% of annual revenue. Customers encountering empty shelves switch brands, buy substitutes, or leave — and 21–43% of stockout events result in lost sales entirely.", economic: "Stockouts are not inventory problems. They are demand fulfillment failures with direct revenue impact." },
-      { name: "Overstock & Markdowns", detail: "Excess inventory ties up capital and drives markdowns that erode gross margin by 10–25% on affected items.", economic: "Every markdown represents a gap between planned margin and realized margin." },
-      { name: "Returns & Reverse Logistics", detail: "E-commerce return rates of 20–30% create reverse logistics costs that consume 59% of the original sale price for many retailers.", economic: "Returns are not a customer service cost — they are a structural margin erosion event." },
+    image: retailImg,
+    overview:
+      "Retail businesses generate valuable operating data but often struggle to convert it into clear decisions. Stock, sales, purchasing and finance information usually remain fragmented.",
+    symptoms: [
+      "Stockouts, slow-moving stock, shrinkage and demand uncertainty.",
+      "Management cannot easily see where value is lost across products, stores or channels.",
+      "Reporting depends on spreadsheets and manual reconciliations.",
     ],
-    intervention: "Seraphis deploys demand sensing models, shrinkage detection analytics, dynamic replenishment triggers, and returns pattern classification — quantifying each loss pool and deploying targeted interventions.",
-    gains: "Typical recovery: 15–40% reduction in addressable loss pools within 12 months.",
+    support:
+      "Seraphis helps retailers structure data, improve reporting, support dashboards, identify loss pools and strengthen the digital tools around communication and operations.",
+    offerings: "Operational diagnostics, Microsoft 365 for office and frontline teams, Azure data foundations, dashboards and analytical models.",
   },
   {
-    img: logisticsImg,
+    title: "Healthcare & Clinics",
+    image: healthcareImg,
+    overview:
+      "Healthcare environments need disciplined handling of patient-related information, secure communication and structured access control, while still keeping teams productive.",
+    symptoms: [
+      "Patient or operational information is passed through weakly controlled channels.",
+      "Email, document and user access security is not strong enough for the sensitivity of the work.",
+      "Reporting across operations or administration is slow and fragmented.",
+    ],
+    support:
+      "Seraphis helps clinics and healthcare organisations build more secure communication and information environments, with Microsoft 365, cloud guidance and reporting support.",
+    offerings: "Business Premium, enterprise security controls, Microsoft cloud support, analytics and operational visibility improvements.",
+  },
+  {
     title: "Logistics & Transportation",
-    losses: [
-      { name: "Empty Miles", detail: "Trucks travel empty 15–25% of total miles. Each empty mile costs $1.50–$2.50 in fuel, depreciation, and driver time with zero revenue contribution.", economic: "Empty movement is pure economic waste — cost incurred with no corresponding value creation." },
-      { name: "Route Inefficiency", detail: "Suboptimal routing adds 10–20% to total fleet fuel costs and increases delivery time variability.", economic: "Fuel and time wasted on inefficient routes accumulate into a significant annual loss pool." },
-      { name: "Dispatch Timing Failures", detail: "Poor dispatch sequencing creates downstream delays, missed time windows, and penalty charges that cost 3–8% of total transport spend.", economic: "Every late departure compounds through the delivery chain into customer-facing failures." },
-      { name: "Asset Underutilization", detail: "Fleet utilization below 70% means capital-intensive assets are generating returns well below their economic potential.", economic: "Underutilized vehicles represent stranded capital with ongoing depreciation and maintenance costs." },
+    image: logisticsImg,
+    overview:
+      "Logistics businesses are strongly affected by route efficiency, utilisation, dispatch timing, reporting discipline and visibility across moving operations.",
+    symptoms: [
+      "Fuel costs are high, trips are underutilised and route planning is inconsistent.",
+      "Operations teams lack a clean, timely view of loads, routes and service performance.",
+      "Communication between office, dispatch and field operations is fragmented.",
     ],
-    intervention: "Seraphis models fleet loss pools, deploys route optimization engines, builds dispatch intelligence systems, and creates utilization dashboards that convert idle capacity into productive movement.",
-    gains: "Typical recovery: 10–25% reduction in fleet operating waste within 12 months.",
+    support:
+      "Seraphis helps logistics businesses improve reporting, planning visibility, communication structure and the cloud/data foundations needed for route and performance analysis.",
+    offerings: "Operational intelligence, frontline Microsoft 365 capability, Azure data platforms, dashboards and planning-oriented analytics.",
   },
   {
-    img: manufacturingImg,
-    title: "Manufacturing",
-    losses: [
-      { name: "Unplanned Downtime", detail: "Unplanned machine downtime costs manufacturers $50B+ annually across industries. A single hour of downtime on a major production line can cost $100K–$300K.", economic: "Every minute of unplanned downtime is lost production capacity that cannot be recovered." },
-      { name: "Scrap & Rework", detail: "Scrap rates of 2–5% and rework rates of 3–10% represent direct material, labor, and energy waste.", economic: "Scrap is not a quality metric — it is a financial loss equal to the full variable cost of production plus opportunity cost." },
-      { name: "Bottleneck Blindness", detail: "Unidentified bottlenecks constrain throughput 10–30% below theoretical capacity without triggering alerts.", economic: "Invisible bottlenecks are the most expensive — they constrain output without being recognized as a loss source." },
-      { name: "Energy Waste", detail: "Energy costs in manufacturing represent 5–15% of operating costs, with 10–30% of energy consumption being recoverable waste.", economic: "Energy waste is a recurring, compounding loss that scales directly with production volume." },
+    title: "Manufacturing & Operations",
+    image: manufacturingImg,
+    overview:
+      "Manufacturing performance depends on process discipline, data visibility, coordination and reliable reporting on downtime, throughput, quality and exceptions.",
+    symptoms: [
+      "Recurring downtime or quality issues are known but not diagnosed properly.",
+      "Data from production, quality and operations is not consolidated for management use.",
+      "Teams spend effort reporting, but root causes remain unclear.",
     ],
-    intervention: "Seraphis deploys predictive maintenance models, OEE optimization engines, bottleneck detection analytics, and energy monitoring systems — mapping each manufacturing loss pool and targeting the highest-value recovery opportunities.",
-    gains: "Typical recovery: 10–20% improvement in OEE and 15–30% reduction in scrap and rework costs.",
+    support:
+      "Seraphis helps manufacturers build operational visibility, structured reporting and cloud foundations that support analytics, automation and continuous improvement.",
+    offerings: "Operational intelligence, Azure cloud architecture, dashboards, data integration and Microsoft 365 collaboration environments.",
   },
   {
-    img: mediaImg,
-    title: "Media & Entertainment",
-    losses: [
-      { name: "Ad Fraud & Invalid Traffic", detail: "Digital ad fraud costs the industry $65–100B annually. Invalid traffic inflates impression counts, drains budgets, and corrupts campaign analytics.", economic: "Every dollar spent on fraudulent impressions is revenue transferred to bad actors with zero marketing value." },
-      { name: "Subscriber Churn", detail: "Streaming and subscription services face annual churn rates of 20–40%. Acquiring a new subscriber costs 5–7x more than retaining an existing one.", economic: "Churn is not a retention metric — it is a recurring customer lifetime value destruction event." },
-      { name: "Campaign Inefficiency", detail: "20–40% of digital campaign spend reaches audiences with zero conversion potential due to poor targeting and frequency capping failures.", economic: "Wasted impressions are economic losses — media spend with no corresponding business outcome." },
-      { name: "Content Performance Blindness", detail: "Without granular content analytics, media companies over-invest in underperforming content and under-invest in high-engagement assets.", economic: "Misallocated content investment creates opportunity costs that compound across production cycles." },
+    title: "Construction & Property",
+    image: constructionImg,
+    overview:
+      "Construction and property organisations need stronger control over project communication, document versioning, approvals and site-level coordination.",
+    symptoms: [
+      "Project files, site reports, supplier records and tenant or client documents are scattered.",
+      "Approvals and communication chains are slow and inconsistently documented.",
+      "Management visibility over project information is weaker than required.",
     ],
-    intervention: "Seraphis deploys fraud detection models, churn prediction engines, campaign optimization analytics, and content performance scoring systems — each targeted at a quantified loss pool.",
-    gains: "Typical recovery: 15–35% reduction in wasted ad spend and 10–20% improvement in subscriber retention.",
+    support:
+      "Seraphis helps construction and property teams improve communication, document management, security, reporting and operational coordination.",
+    offerings: "Microsoft 365, SharePoint/Teams enablement, Azure advisory, workflow support and reporting solutions.",
+  },
+  {
+    title: "Finance, Insurance & Investment",
+    image: financeImg,
+    overview:
+      "Financial and advisory environments rely on trusted data, strong access control, careful communication and a high degree of governance discipline.",
+    symptoms: [
+      "Sensitive client information requires stronger identity and access controls.",
+      "Reporting and approvals must be consistent, auditable and timely.",
+      "The organisation needs productivity gains without weakening control.",
+    ],
+    support:
+      "Seraphis helps financial organisations strengthen Microsoft environments, cloud foundations, reporting visibility and cybersecurity posture.",
+    offerings: "Microsoft 365 Business Premium or E3/E5, security controls, Azure cloud advisory, operational dashboards and governance support.",
+  },
+  {
+    title: "Media, Digital & Content Businesses",
+    image: mediaImg,
+    overview:
+      "Digital businesses often move quickly, but the speed can hide weak controls around workflows, campaign visibility, content operations and data use.",
+    symptoms: [
+      "Digital operations depend on fast collaboration but information remains fragmented.",
+      "Management lacks enough visibility over campaign, subscriber or operational performance.",
+      "The business wants more automation and data insight but lacks the foundation.",
+    ],
+    support:
+      "Seraphis helps digital businesses improve work environments, reporting structures, security and the cloud/data base needed for ongoing analytics and growth.",
+    offerings: "Microsoft 365 collaboration, Azure cloud services, dashboards, analytics and workflow improvements.",
   },
 ];
 
 const Industries = () => (
   <main>
-    <section className="section-padding bg-card">
-      <div className="section-container">
+    <SEO
+      title="Industry Solutions | Seraphis IT and Data Solutions"
+      description="See how Seraphis applies operational intelligence, Microsoft 365, Azure cloud solutions and analytics across schools, retail, logistics, manufacturing, finance and more."
+    />
+
+    <section className="hero-shell">
+      <div className="section-container py-16 md:py-20 lg:py-24">
         <SectionHeading
           label="Industries"
-          title="Sector-Specific Loss Intelligence"
-          description="Every industry has its own loss architecture — its own patterns of leakage, its own failure modes, its own recovery opportunities. Seraphis models yours."
+          title="Industry-specific problems need industry-aware solutions"
+          description="Each sector has different data, risks, users and performance gaps. Seraphis adapts the offer to the operating reality."
         />
       </div>
     </section>
 
-    {industries.map((ind, i) => (
-      <section key={i} className={`section-padding ${i % 2 === 0 ? "bg-background" : "bg-card"}`}>
+    {industries.map((industry, index) => (
+      <section key={industry.title} className={index % 2 === 0 ? "section-padding bg-background" : "section-padding bg-card"}>
         <div className="section-container space-y-10">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <img src={ind.img} alt={ind.title} loading="lazy" width={1280} height={720} className={`rounded-xl shadow-lg ${i % 2 === 1 ? "lg:order-2" : ""}`} />
-            <div className="space-y-4">
-              <h2>{ind.title}</h2>
-              <p className="text-muted-foreground">
-                The {ind.title.toLowerCase()} sector faces structural loss pools that compound across operations.
-                Most organizations address symptoms — Seraphis addresses the economic architecture of loss.
-              </p>
+          <div className="grid gap-10 xl:grid-cols-[0.95fr,1.05fr] xl:items-center">
+            <img
+              src={industry.image}
+              alt={industry.title}
+              className={`w-full rounded-2xl shadow-lg ${index % 2 === 1 ? "xl:order-2" : ""}`}
+            />
+            <div className={`space-y-5 ${index % 2 === 1 ? "xl:order-1" : ""}`}>
+              <h2>{industry.title}</h2>
+              <p className="text-muted-foreground">{industry.overview}</p>
+              <div className="rounded-xl border border-border bg-background/70 p-5">
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">How Seraphis Helps</div>
+                <p className="mt-3 text-sm text-muted-foreground">{industry.support}</p>
+              </div>
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {ind.losses.map((loss, j) => (
-              <div key={j} className="seraphis-card space-y-3">
-                <h4 className="text-lg font-semibold">{loss.name}</h4>
-                <p className="text-sm text-muted-foreground">{loss.detail}</p>
-                <p className="text-sm font-medium text-primary italic">{loss.economic}</p>
+          <div className="grid gap-6 lg:grid-cols-[1.05fr,0.95fr]">
+            <div className="seraphis-card space-y-4">
+              <h3 className="text-xl">Typical Symptoms In This Industry</h3>
+              <div className="space-y-3">
+                {industry.symptoms.map((symptom) => (
+                  <div key={symptom} className="flex gap-3 text-sm text-muted-foreground">
+                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-primary" />
+                    <span>{symptom}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-
-          <div className="bg-accent/40 rounded-xl p-8 space-y-4">
-            <h4 className="text-lg font-semibold text-primary">Seraphis Intervention</h4>
-            <p className="text-sm text-muted-foreground">{ind.intervention}</p>
-            <p className="text-sm font-semibold text-seraphis-heading">{ind.gains}</p>
+            </div>
+            <div className="seraphis-card space-y-4">
+              <h3 className="text-xl">Relevant Offerings</h3>
+              <p className="text-sm text-muted-foreground">{industry.offerings}</p>
+              <div className="pt-2">
+                <Button variant="hero-outline" asChild>
+                  <Link to="/contact">Discuss This Industry</Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -105,13 +206,18 @@ const Industries = () => (
 
     <section className="section-padding bg-primary">
       <div className="section-container text-center space-y-6">
-        <h2 className="text-primary-foreground">Which Losses Are Draining Your Industry?</h2>
-        <p className="text-primary-foreground/80 max-w-2xl mx-auto text-lg">
-          Let Seraphis map the loss architecture specific to your sector and quantify the recoverable value.
+        <h2 className="text-primary-foreground">Need an industry-specific conversation?</h2>
+        <p className="mx-auto max-w-3xl text-lg text-primary-foreground/85">
+          We can discuss your environment from the perspective of its actual operational problems, technology gaps and business outcomes.
         </p>
-        <Button variant="secondary" size="lg" asChild>
-          <Link to="/contact">Request a Consultation <ArrowRight size={16} /></Link>
-        </Button>
+        <div className="flex flex-wrap justify-center gap-4">
+          <Button variant="secondary" size="lg" asChild>
+            <Link to="/contact">Request A Consultation</Link>
+          </Button>
+          <Button variant="outline" size="lg" className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10" asChild>
+            <Link to="/microsoft-365">View Microsoft 365 Solutions <ArrowRight size={16} /></Link>
+          </Button>
+        </div>
       </div>
     </section>
   </main>

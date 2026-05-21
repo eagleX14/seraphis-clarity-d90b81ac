@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
+import SEO from "@/components/SEO";
 import m365Hero from "@/assets/m365-hero.jpg";
 import m365Security from "@/assets/m365-security.jpg";
 import m365Migration from "@/assets/m365-migration.jpg";
@@ -181,19 +182,20 @@ const beyondImageMap = [
 
 const Microsoft365 = () => (
   <main>
+    <SEO title="Microsoft 365 Licensing, Migration & Security | Seraphis IT" description="Microsoft 365 licence guidance, tenant setup, mailbox migration, Teams, SharePoint, OneDrive, security baselines and support from Seraphis IT and Data Solutions." />
     {/* Hero */}
-    <section className="relative overflow-hidden bg-card">
+    <section className="hero-shell">
       <div className="section-container py-16 md:py-24 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary">
+            <span className="sales-pill">
               Microsoft 365 · Azure · Security
             </span>
             <h1>
               Microsoft 365 Licensing, Migration &{" "}
-              <span className="gradient-text">Security For Modern Organisations</span>
+              <span className="text-secondary">Security For Modern Organisations</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-xl">
+            <p className="text-lg max-w-xl">
               Move from scattered email, weak access control and unmanaged files to a secure Microsoft 365
               environment built for communication, collaboration, data protection and business growth.
             </p>
@@ -209,13 +211,13 @@ const Microsoft365 = () => (
               </Button>
             </div>
           </div>
-          <div className="relative">
+          <div className="image-panel">
             <img
               src={m365Hero}
               alt="Microsoft 365 productivity environment on a modern workspace"
               width={1600}
               height={1000}
-              className="rounded-xl shadow-2xl"
+              className="min-h-[420px] w-full object-cover"
             />
           </div>
         </div>
@@ -223,7 +225,7 @@ const Microsoft365 = () => (
     </section>
 
     {/* Credibility */}
-    <section className="bg-background border-y border-border">
+    <section className="section-surface border-y border-border">
       <div className="section-container py-10">
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -364,7 +366,7 @@ const Microsoft365 = () => (
           />
         </div>
         <div className="space-y-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary">
+          <span className="sales-pill">
             Migration & Setup
           </span>
           <h2>Licensing alone does not solve the problem</h2>
@@ -407,7 +409,7 @@ const Microsoft365 = () => (
           />
         </div>
         <div className="space-y-6 lg:order-1">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary">
+          <span className="sales-pill">
             Cybersecurity & Fraud Protection
           </span>
           <h2>Identity is the new perimeter</h2>
@@ -417,10 +419,7 @@ const Microsoft365 = () => (
           </p>
           <div className="seraphis-card bg-accent/40 border-accent">
             <p className="text-sm text-seraphis-body">
-              Microsoft's 2025 Digital Defense Report notes that <strong>97% of identity attacks</strong> were
-              password spray attacks — weak or overused passwords remain the dominant attack path. Verizon's
-              2026 DBIR continues to attribute breaches to human elements such as phishing, social
-              engineering and stolen credentials.
+              Weak identity controls create an active business risk. A single compromised mailbox can expose client data, payment instructions, supplier communication and internal documents.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-3">

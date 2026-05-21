@@ -1,71 +1,121 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 
 const Footer = () => (
-  <footer className="bg-seraphis-heading text-secondary">
-    <div className="section-container py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        {/* Brand */}
+  <footer className="relative overflow-hidden bg-black text-slate-200 font-body">
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(14,165,233,0.14),transparent_24rem),radial-gradient(circle_at_90%_10%,rgba(249,115,22,0.12),transparent_22rem)]" />
+
+    <div className="section-container relative py-16">
+      <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-4">
         <div className="space-y-4">
-          <h3 className="text-xl font-heading font-bold text-primary-foreground">Seraphis</h3>
-          <p className="text-sm text-secondary/70 leading-relaxed">
-            Operational Intelligence, Avoidable Loss Recovery, and Financial Performance Engineering.
+          <h3 className="text-xl font-bold text-white">
+            Seraphis IT and Data Solutions
+          </h3>
+
+          <p className="text-[15px] leading-7 text-slate-300">
+            Business data, Microsoft cloud, operational intelligence, cybersecurity and analytics for organisations that want accurate decisions, efficient operations and scalable growth.
+          </p>
+
+          <p className="rounded-xl border border-white/10 bg-white/5 p-4 text-sm leading-6 text-slate-300">
+            Microsoft Partner Center Approved • CSP Indirect Reseller • MPN ID: 7019412
           </p>
         </div>
 
-        {/* Quick Links */}
         <div className="space-y-4">
-          <h4 className="text-sm font-heading font-semibold text-primary-foreground uppercase tracking-wider">Navigation</h4>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
+            Explore
+          </h4>
+
           <div className="flex flex-col gap-2">
             {[
-              { label: "About", path: "/about" },
-              { label: "Solutions", path: "/solutions" },
-              { label: "Industries", path: "/industries" },
-              { label: "How We Work", path: "/how-we-work" },
+              { label: "Business Solutions", path: "/business-solutions" },
+              { label: "Microsoft 365 Licensing", path: "/microsoft-365" },
+              { label: "Azure Cloud Solutions", path: "/azure-cloud-solutions" },
+              { label: "Industry Solutions", path: "/industries" },
+              { label: "Self-Diagnosis", path: "/diagnostic-questionnaire" },
               { label: "Insights", path: "/insights" },
             ].map((link) => (
-              <Link key={link.path} to={link.path} className="text-sm text-secondary/70 hover:text-primary transition-colors">
+              <Link
+                key={link.path}
+                to={link.path}
+                className="text-[15px] leading-6 text-slate-300 transition-colors hover:text-white"
+              >
                 {link.label}
               </Link>
             ))}
           </div>
         </div>
 
-        {/* Services */}
         <div className="space-y-4">
-          <h4 className="text-sm font-heading font-semibold text-primary-foreground uppercase tracking-wider">Solutions</h4>
-          <div className="flex flex-col gap-2">
-            {["Loss Discovery", "Loss Pool Modeling", "Data Platform", "Predictive Analytics", "Workflow Integration", "Monitoring"].map((s) => (
-              <Link key={s} to="/solutions" className="text-sm text-secondary/70 hover:text-primary transition-colors">
-                {s}
-              </Link>
-            ))}
-          </div>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
+            What We Help Improve
+          </h4>
+
+          <ul className="space-y-2 text-[15px] leading-6 text-slate-300">
+            <li>Business data and performance visibility</li>
+            <li>Microsoft 365 licensing and migration</li>
+            <li>Azure cloud and data foundations</li>
+            <li>Cybersecurity, access control and fraud exposure</li>
+            <li>Efficiency, cost-benefit and scalable opportunities</li>
+          </ul>
         </div>
 
-        {/* Contact */}
         <div className="space-y-4">
-          <h4 className="text-sm font-heading font-semibold text-primary-foreground uppercase tracking-wider">Contact</h4>
-          <div className="flex flex-col gap-3 text-sm text-secondary/70">
-            <a href="mailto:Info@seraphis-it.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Mail size={14} /> Info@seraphis-it.com
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
+            Contact
+          </h4>
+
+          <div className="space-y-3 text-[15px] leading-6 text-slate-300">
+            <a
+              href="mailto:info@seraphis-it.com"
+              className="flex items-center gap-2 transition-colors hover:text-white"
+            >
+              <Mail size={16} className="shrink-0 text-sky-400" />
+              info@seraphis-it.com
             </a>
-            <a href="tel:+27670542001" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Phone size={14} /> +27 67 054 2001
+
+            <a
+              href="tel:+27670542001"
+              className="flex items-center gap-2 transition-colors hover:text-white"
+            >
+              <Phone size={16} className="shrink-0 text-sky-400" />
+              +27 67 054 2001
             </a>
+            <a
+              href="https://wa.me/message/J2TBIHOFWLLKH1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 transition-colors hover:text-white"
+            >
+              <MessageCircle size={16} className="shrink-0 text-green-400" />
+              WhatsApp Seraphis
+            </a>
+
+
             <div className="flex items-start gap-2">
-              <MapPin size={14} className="mt-0.5 shrink-0" />
+              <MapPin size={16} className="mt-0.5 shrink-0 text-sky-400" />
               <span>9 Orange Street, Sunnyside, Johannesburg, Gauteng, 2092</span>
             </div>
           </div>
+
+          <Link
+            to="/contact"
+            className="inline-flex rounded-full bg-white px-5 py-2 text-sm font-bold text-black transition-colors hover:bg-sky-100"
+          >
+            Book A Diagnostic Conversation
+          </Link>
         </div>
       </div>
 
-      <div className="mt-12 pt-8 border-t border-secondary/20 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-xs text-secondary/50">
-          © {new Date().getFullYear()} Seraphis IT and Data Solutions (Pty) Ltd. All rights reserved.
+      <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 md:flex-row md:items-center">
+        <p className="text-sm text-slate-400">
+          © {new Date().getFullYear()} Seraphis IT and Data Solutions (Pty) Ltd. Your success is our pride.
         </p>
-        <a href="https://www.seraphis-it.com" className="text-xs text-secondary/50 hover:text-primary transition-colors">
+
+        <a
+          href="https://www.seraphis-it.com"
+          className="text-sm text-slate-400 transition-colors hover:text-white"
+        >
           www.seraphis-it.com
         </a>
       </div>

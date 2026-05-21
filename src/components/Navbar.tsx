@@ -6,11 +6,11 @@ import seraphisLogo from "@/assets/seraphis-logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Solutions", path: "/solutions" },
-  { label: "Industries", path: "/industries" },
-  { label: "How We Work", path: "/how-we-work" },
+  { label: "Business Solutions", path: "/business-solutions" },
   { label: "Microsoft 365", path: "/microsoft-365" },
+  { label: "Azure Cloud", path: "/azure-cloud-solutions" },
+  { label: "Industries", path: "/industries" },
+  { label: "Diagnostic", path: "/diagnostic-questionnaire" },
   { label: "Insights", path: "/insights" },
   { label: "Contact", path: "/contact" },
 ];
@@ -20,22 +20,21 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
-      <nav className="section-container flex items-center justify-between py-3 min-h-[84px] md:min-h-[96px]">
-        <Link to="/" className="flex items-center gap-3 min-w-0">
+    <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur-md">
+      <nav className="section-container flex items-center justify-between py-3 min-h-[88px]">
+        <Link to="/" className="flex min-w-0 items-center gap-3">
           <img
             src={seraphisLogo}
             alt="Seraphis IT and Data Solutions"
-            className="h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 object-contain shrink-0"
+            className="h-12 w-12 rounded-lg object-contain md:h-14 md:w-14"
           />
-
-          <div className="flex flex-col leading-tight min-w-0">
-            <span className="text-xs sm:text-sm md:text-base font-semibold text-foreground">
+          <div className="min-w-0 leading-tight">
+            <div className="truncate text-sm font-semibold text-foreground md:text-base">
               Seraphis IT and Data Solutions
-            </span>
-            <span className="mt-0.5 text-[9px] sm:text-[10px] md:text-[11px] italic text-muted-foreground">
-              Using tech to solve Modern Business problems
-            </span>
+            </div>
+            <div className="text-[10px] text-muted-foreground md:text-xs">
+              Operational Intelligence • Microsoft Cloud • Analytics • Cybersecurity
+            </div>
           </div>
         </Link>
 
@@ -44,10 +43,10 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                 location.pathname === link.path
-                  ? "text-primary bg-accent"
-                  : "text-seraphis-body hover:text-primary hover:bg-accent/50"
+                  ? "bg-accent text-primary"
+                  : "text-seraphis-body hover:bg-accent/60 hover:text-primary"
               }`}
             >
               {link.label}
@@ -55,9 +54,12 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden xl:block">
+        <div className="hidden xl:flex items-center gap-3">
+          <Button variant="hero-outline" size="sm" asChild>
+            <Link to="/microsoft-365">View Licence Catalogue</Link>
+          </Button>
           <Button variant="hero" size="sm" asChild>
-            <Link to="/contact">Book a Consultation</Link>
+            <Link to="/contact">Book A Review</Link>
           </Button>
         </div>
 
@@ -71,26 +73,31 @@ const Navbar = () => {
       </nav>
 
       {mobileOpen && (
-        <div className="xl:hidden bg-card border-b border-border animate-fade-in">
-          <div className="section-container py-4 flex flex-col gap-1">
+        <div className="border-b border-border bg-card xl:hidden animate-fade-in">
+          <div className="section-container flex flex-col gap-1 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setMobileOpen(false)}
-                className={`px-4 py-3 text-sm font-medium rounded-md transition-colors ${
+                className={`rounded-md px-4 py-3 text-sm font-medium transition-colors ${
                   location.pathname === link.path
-                    ? "text-primary bg-accent"
-                    : "text-seraphis-body hover:text-primary hover:bg-accent/50"
+                    ? "bg-accent text-primary"
+                    : "text-seraphis-body hover:bg-accent/50 hover:text-primary"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2">
+            <div className="grid gap-3 pt-3 sm:grid-cols-2">
+              <Button variant="hero-outline" className="w-full" asChild>
+                <Link to="/microsoft-365" onClick={() => setMobileOpen(false)}>
+                  View Licence Catalogue
+                </Link>
+              </Button>
               <Button variant="hero" className="w-full" asChild>
                 <Link to="/contact" onClick={() => setMobileOpen(false)}>
-                  Book a Consultation
+                  Book A Review
                 </Link>
               </Button>
             </div>
