@@ -4,16 +4,84 @@ import SectionHeading from "@/components/SectionHeading";
 import m365Hero from "@/assets/m365-hero.jpg";
 import m365Security from "@/assets/m365-security.jpg";
 import m365Migration from "@/assets/m365-migration.jpg";
-import retailImg from "@/assets/industry-retail.jpg";
-import logisticsImg from "@/assets/industry-logistics.jpg";
-import manufacturingImg from "@/assets/industry-manufacturing.jpg";
-import mediaImg from "@/assets/industry-media.jpg";
+
+// Industry photos
+import indSchools from "@/assets/ind-schools.jpg";
+import indProfessional from "@/assets/ind-professional.jpg";
+import indHealthcare from "@/assets/ind-healthcare.jpg";
+import indConstruction from "@/assets/ind-construction.jpg";
+import indFinance from "@/assets/ind-finance.jpg";
+import indRetail from "@/assets/industry-retail.jpg";
+import indManufacturing from "@/assets/industry-manufacturing.jpg";
 import platformImg from "@/assets/platform-architecture.jpg";
+
+// Licence product visuals
+import licBasic from "@/assets/lic-business-basic.png";
+import licStandard from "@/assets/lic-business-standard.png";
+import licPremium from "@/assets/lic-business-premium.png";
+import licF3 from "@/assets/lic-f3.png";
+import licEducation from "@/assets/lic-education.png";
+import licEnterprise from "@/assets/lic-enterprise.png";
+import licSecurity from "@/assets/lic-security.png";
+import licCopilot from "@/assets/lic-copilot.png";
+
 import {
   Mail, FolderLock, UserX, AlertTriangle, DatabaseBackup, Files, ScrollText, BarChart3,
   ShieldCheck, Cloud, Workflow, Brain, Activity, LineChart, Server, Sparkles, ArrowRight,
   CheckCircle2, BadgeCheck, Building2,
 } from "lucide-react";
+
+const industries = [
+  {
+    img: indSchools,
+    name: "Schools & Colleges",
+    problem: "Learner data, parent communication, staff files and discipline records exposed by weak email and shared passwords.",
+    licences: "Education A1 / A3 / A5, Business Premium for admin, Security Add-ons.",
+    offer: "School Microsoft 365 Licence Review",
+  },
+  {
+    img: indProfessional,
+    name: "Legal, Accounting & Professional Services",
+    problem: "Client contracts, tax records and confidential email create compliance and account-compromise risk.",
+    licences: "Business Standard, Business Premium, E3/E5, Security Add-ons.",
+    offer: "Client Data & Document Control Review",
+  },
+  {
+    img: indRetail,
+    name: "Retail & Hospitality",
+    problem: "Frontline staff, stock, supplier and branch reporting fragmented across WhatsApp and spreadsheets.",
+    licences: "F3 Frontline, Business Basic/Standard, Business Premium for HQ, Power BI.",
+    offer: "Retail Communication & Reporting Review",
+  },
+  {
+    img: indHealthcare,
+    name: "Healthcare & Clinics",
+    problem: "Patient records, billing and referrals exposed by weak email security and unmanaged backups.",
+    licences: "Business Premium, E3/E5, Security Add-ons, Azure backup.",
+    offer: "Patient Data & Microsoft 365 Security Review",
+  },
+  {
+    img: indManufacturing,
+    name: "Manufacturing & Logistics",
+    problem: "Disconnected office, warehouse, dispatch and field teams cause delays and weak operational control.",
+    licences: "F3 for floor, Business Standard for office, Business Premium for managers, Power BI.",
+    offer: "Operations Communication & Data Visibility Review",
+  },
+  {
+    img: indConstruction,
+    name: "Construction & Property",
+    problem: "Project documents, site reports, tenant and supplier files scattered across email and devices.",
+    licences: "Business Standard/Premium, F3 for site teams, Power Automate, Power BI.",
+    offer: "Project Document & Reporting Control Review",
+  },
+  {
+    img: indFinance,
+    name: "Finance, Insurance & Investment",
+    problem: "Sensitive client data, secure approvals and compliance records exposed by weak identity controls.",
+    licences: "Business Premium, E3/E5, Security Add-ons, Power BI, Azure.",
+    offer: "Financial Data, Access & Security Review",
+  },
+];
 
 const problems = [
   { icon: Mail, title: "Weak email control" },
@@ -28,6 +96,7 @@ const problems = [
 
 const licences = [
   {
+    img: licBasic,
     name: "Microsoft 365 Business Basic",
     bestFor: "Small businesses, startups, admin teams moving from Gmail or scattered files.",
     problem: "Informal email, shared inboxes and no central file storage create confusion and risk.",
@@ -35,6 +104,7 @@ const licences = [
     seraphis: "Domain & DNS, mailbox setup, email migration, Teams, OneDrive/SharePoint, basic security.",
   },
   {
+    img: licStandard,
     name: "Microsoft 365 Business Standard",
     bestFor: "Growing SMEs, professional services, accounting, legal, consultants, hybrid teams.",
     problem: "Teams need installed Office apps, consistent documents and reliable collaboration.",
@@ -42,6 +112,7 @@ const licences = [
     seraphis: "Licence planning, mailbox migration, Outlook setup, Teams rollout, training, support.",
   },
   {
+    img: licPremium,
     name: "Microsoft 365 Business Premium",
     bestFor: "Schools, clinics, financial SMEs, law and accounting firms, remote-laptop teams.",
     problem: "Sensitive data handled on weakly protected accounts and unmanaged devices.",
@@ -49,6 +120,7 @@ const licences = [
     seraphis: "MFA, security baseline, access review, Defender / Intune setup, onboarding controls.",
   },
   {
+    img: licF3,
     name: "Microsoft 365 F3 Frontline",
     bestFor: "Retail, hospitality, logistics, healthcare frontline, branch and floor teams.",
     problem: "Frontline staff rely on WhatsApp with no controlled communication or file access.",
@@ -56,6 +128,7 @@ const licences = [
     seraphis: "Frontline user segmentation, branch licence planning, Teams, shared-device guidance.",
   },
   {
+    img: licEducation,
     name: "Microsoft 365 Education A1 / A3 / A5",
     bestFor: "Schools, colleges, TVETs and training providers.",
     problem: "Learner and staff data sit in personal accounts with weak access controls.",
@@ -63,6 +136,7 @@ const licences = [
     seraphis: "Education licence mapping, tenant setup, classroom Teams, security baseline, training.",
   },
   {
+    img: licEnterprise,
     name: "Microsoft 365 E3 / E5 Enterprise",
     bestFor: "300+ user organisations, regulated industries, multi-branch and government units.",
     problem: "Enterprise scale needs governance, identity, compliance and analytics in one model.",
@@ -70,6 +144,7 @@ const licences = [
     seraphis: "Licence architecture, tenant assessment, governance, Azure/cloud advisory, managed support.",
   },
   {
+    img: licSecurity,
     name: "Security Add-ons",
     bestFor: "Firms handling sensitive data, remote teams, schools, healthcare, financial services.",
     problem: "Weak identity control, phishing and unmanaged devices cause account takeover and fraud.",
@@ -77,6 +152,7 @@ const licences = [
     seraphis: "Security assessment, MFA rollout, Conditional Access, endpoint policy, ongoing monitoring.",
   },
   {
+    img: licCopilot,
     name: "Copilot / AI Add-ons",
     bestFor: "Mature M365 organisations, admin-heavy, reporting-heavy and knowledge-worker teams.",
     problem: "Slow drafting, repetitive admin and scattered knowledge waste expensive hours.",
@@ -95,58 +171,6 @@ const beyond = [
   { icon: Activity, title: "Operational Reporting", desc: "Branch, dispatch, project and store-level performance reporting." },
   { icon: Brain, title: "AI & Copilot Readiness", desc: "Governance, data access and licence prerequisites before AI rollout." },
   { icon: Sparkles, title: "Loss-Pool Diagnostics", desc: "Quantify avoidable losses and prioritise recoverable value." },
-];
-
-const industries = [
-  {
-    img: platformImg,
-    name: "Schools & Colleges",
-    problem: "Learner data, parent communication, staff files and discipline records exposed by weak email and shared passwords.",
-    licences: "Education A1 / A3 / A5, Business Premium for admin, Security Add-ons.",
-    offer: "School Microsoft 365 Licence Review",
-  },
-  {
-    img: mediaImg,
-    name: "Legal, Accounting & Professional Services",
-    problem: "Client contracts, tax records and confidential email create compliance and account-compromise risk.",
-    licences: "Business Standard, Business Premium, E3/E5, Security Add-ons.",
-    offer: "Client Data & Document Control Review",
-  },
-  {
-    img: retailImg,
-    name: "Retail & Hospitality",
-    problem: "Frontline staff, stock, supplier and branch reporting fragmented across WhatsApp and spreadsheets.",
-    licences: "F3 Frontline, Business Basic/Standard, Business Premium for HQ, Power BI.",
-    offer: "Retail Communication & Reporting Review",
-  },
-  {
-    img: platformImg,
-    name: "Healthcare & Clinics",
-    problem: "Patient records, billing and referrals exposed by weak email security and unmanaged backups.",
-    licences: "Business Premium, E3/E5, Security Add-ons, Azure backup.",
-    offer: "Patient Data & Microsoft 365 Security Review",
-  },
-  {
-    img: manufacturingImg,
-    name: "Manufacturing & Logistics",
-    problem: "Disconnected office, warehouse, dispatch and field teams cause delays and weak operational control.",
-    licences: "F3 for floor, Business Standard for office, Business Premium for managers, Power BI.",
-    offer: "Operations Communication & Data Visibility Review",
-  },
-  {
-    img: logisticsImg,
-    name: "Construction & Property",
-    problem: "Project documents, site reports, tenant and supplier files scattered across email and devices.",
-    licences: "Business Standard/Premium, F3 for site teams, Power Automate, Power BI.",
-    offer: "Project Document & Reporting Control Review",
-  },
-  {
-    img: mediaImg,
-    name: "Finance, Insurance & Investment",
-    problem: "Sensitive client data, secure approvals and compliance records exposed by weak identity controls.",
-    licences: "Business Premium, E3/E5, Security Add-ons, Power BI, Azure.",
-    offer: "Financial Data, Access & Security Review",
-  },
 ];
 
 const beyondImageMap = [
@@ -221,6 +245,37 @@ const Microsoft365 = () => (
       </div>
     </section>
 
+    {/* Industries first — captivate visitors */}
+    <section className="section-padding bg-background">
+      <div className="section-container">
+        <SectionHeading
+          label="Industry Positioning"
+          title="Built for the way your sector actually operates"
+          description="Every industry has a distinct exposure profile. Find your sector and see how Seraphis aligns Microsoft 365 plans, security and analytics to your real operating context."
+        />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {industries.map((ind) => (
+            <div key={ind.name} className="seraphis-card overflow-hidden p-0 flex flex-col">
+              <img src={ind.img} alt={ind.name} loading="lazy" className="w-full h-48 object-cover" />
+              <div className="p-6 flex-1 flex flex-col">
+                <h4 className="mb-3 text-xl">{ind.name}</h4>
+                <p className="text-sm text-muted-foreground mb-4">{ind.problem}</p>
+                <div className="text-sm mb-4">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary">Recommended</span>
+                  <p className="mt-1 text-seraphis-body">{ind.licences}</p>
+                </div>
+                <div className="mt-auto pt-2">
+                  <Button variant="hero-outline" size="sm" asChild>
+                    <Link to="/contact">{ind.offer} <ArrowRight size={14} /></Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* Problems we solve */}
     <section className="section-padding bg-card">
       <div className="section-container">
@@ -242,7 +297,7 @@ const Microsoft365 = () => (
       </div>
     </section>
 
-    {/* Licence categories */}
+    {/* Licence categories with product visuals */}
     <section id="licences" className="section-padding bg-background">
       <div className="section-container">
         <SectionHeading
@@ -252,29 +307,39 @@ const Microsoft365 = () => (
         />
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           {licences.map((l) => (
-            <div key={l.name} className="seraphis-card flex flex-col">
-              <h4 className="mb-4">{l.name}</h4>
-              <div className="space-y-3 text-sm flex-1">
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary">Best for</span>
-                  <p className="mt-1 text-muted-foreground">{l.bestFor}</p>
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-destructive">Business problem</span>
-                  <p className="mt-1 text-muted-foreground">{l.problem}</p>
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-seraphis-sky">What it enables</span>
-                  <p className="mt-1 text-muted-foreground">{l.enables}</p>
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary">Seraphis support</span>
-                  <p className="mt-1 text-muted-foreground">{l.seraphis}</p>
-                </div>
+            <div key={l.name} className="seraphis-card flex flex-col p-0 overflow-hidden">
+              <div className="bg-accent/40 aspect-[4/3] flex items-center justify-center overflow-hidden">
+                <img
+                  src={l.img}
+                  alt={l.name}
+                  loading="lazy"
+                  className="w-full h-full object-contain p-4"
+                />
               </div>
-              <Button variant="hero-outline" size="sm" className="mt-6 self-start" asChild>
-                <Link to="/contact">Request Quote</Link>
-              </Button>
+              <div className="p-6 flex flex-col flex-1">
+                <h4 className="mb-4 text-lg">{l.name}</h4>
+                <div className="space-y-3 text-sm flex-1">
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-primary">Best for</span>
+                    <p className="mt-1 text-muted-foreground">{l.bestFor}</p>
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-destructive">Business problem</span>
+                    <p className="mt-1 text-muted-foreground">{l.problem}</p>
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-seraphis-sky">What it enables</span>
+                    <p className="mt-1 text-muted-foreground">{l.enables}</p>
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-primary">Seraphis support</span>
+                    <p className="mt-1 text-muted-foreground">{l.seraphis}</p>
+                  </div>
+                </div>
+                <Button variant="hero-outline" size="sm" className="mt-6 self-start" asChild>
+                  <Link to="/contact">Request Quote</Link>
+                </Button>
+              </div>
             </div>
           ))}
         </div>
@@ -403,37 +468,6 @@ const Microsoft365 = () => (
               <div className="p-6">
                 <div className="font-semibold text-seraphis-heading mb-1">{title}</div>
                 <p className="text-sm text-muted-foreground">{desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* Industries */}
-    <section className="section-padding bg-background">
-      <div className="section-container">
-        <SectionHeading
-          label="Industry Positioning"
-          title="The right licence mix for your sector"
-          description="Each industry has a distinct exposure profile. Seraphis aligns Microsoft 365 plans, security and analytics to the way your organisation actually operates."
-        />
-        <div className="grid md:grid-cols-2 gap-6">
-          {industries.map((ind) => (
-            <div key={ind.name} className="seraphis-card overflow-hidden p-0 flex flex-col">
-              <img src={ind.img} alt={ind.name} loading="lazy" className="w-full h-44 object-cover" />
-              <div className="p-6 flex-1 flex flex-col">
-                <h4 className="mb-3">{ind.name}</h4>
-                <p className="text-sm text-muted-foreground mb-4">{ind.problem}</p>
-                <div className="text-sm mb-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary">Recommended</span>
-                  <p className="mt-1 text-seraphis-body">{ind.licences}</p>
-                </div>
-                <div className="mt-auto pt-4">
-                  <Button variant="hero-outline" size="sm" asChild>
-                    <Link to="/contact">{ind.offer} <ArrowRight size={14} /></Link>
-                  </Button>
-                </div>
               </div>
             </div>
           ))}
