@@ -11,6 +11,7 @@ import Solutions from "./pages/Solutions";
 import Industries from "./pages/Industries";
 import HowWeWork from "./pages/HowWeWork";
 import Insights from "./pages/Insights";
+import Microsoft365 from "./pages/Microsoft365";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -32,6 +33,7 @@ const App = () => (
               <Route path="/industries" element={<Industries />} />
               <Route path="/how-we-work" element={<HowWeWork />} />
               <Route path="/insights" element={<Insights />} />
+              <Route path="/microsoft-365" element={<Microsoft365 />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
