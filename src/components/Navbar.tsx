@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Solutions", path: "/solutions" },
   { label: "Industries", path: "/industries" },
   { label: "How We Work", path: "/how-we-work" },
+  { label: "Microsoft 365", path: "/microsoft-365" },
   { label: "Insights", path: "/insights" },
   { label: "Contact", path: "/contact" },
 ];
