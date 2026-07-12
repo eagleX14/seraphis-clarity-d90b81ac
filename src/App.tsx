@@ -21,6 +21,7 @@ import DiagnosticQuestionnaire from "./pages/DiagnosticQuestionnaire";
 import RetailAnalyticsPrivacy from "./pages/RetailAnalyticsPrivacy";
 import RetailAnalyticsSupport from "./pages/RetailAnalyticsSupport";
 import CspRetailAnalyticsMarketing from "./pages/CspRetailAnalyticsMarketing";
+import RetailAnalyticsScaling from "./pages/RetailAnalyticsScaling";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,12 @@ const App = () => (
           <Route path="/support/retail-analytics/" element={<RetailAnalyticsSupport />} />
           <Route path="/partners/csp-retail-analytics" element={<CspRetailAnalyticsMarketing />} />
           <Route path="/partners/csp-retail-analytics/" element={<CspRetailAnalyticsMarketing />} />
+          <Route path="/solutions/retail-analytics-scaling" element={<RetailAnalyticsScaling />} />
+          <Route path="/solutions/retail-analytics-scaling/" element={<RetailAnalyticsScaling />} />
+          <Route path="/retail-analytics" element={<RetailAnalyticsScaling />} />
+          <Route path="/retail-analytics/" element={<RetailAnalyticsScaling />} />
+          <Route path="/retail-analytics-scaling" element={<RetailAnalyticsScaling />} />
+          <Route path="/retail-analytics-scaling/" element={<RetailAnalyticsScaling />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
