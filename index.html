@@ -19,6 +19,15 @@
     <meta name="twitter:title" content="Seraphis IT &amp; Data Solutions | Operational Intelligence, Microsoft 365, Azure &amp; Analytics" />
     <meta name="twitter:description" content="Operational intelligence, Microsoft 365 licensing, Azure cloud architecture, cybersecurity and analytics for modern organisations." />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var spaRoute = params.get("spaRoute");
+        if (spaRoute) {
+          window.history.replaceState(null, "", decodeURIComponent(spaRoute));
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
