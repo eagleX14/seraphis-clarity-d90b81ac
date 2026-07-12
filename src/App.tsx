@@ -20,6 +20,7 @@ import BlogPost from "./pages/BlogPost";
 import DiagnosticQuestionnaire from "./pages/DiagnosticQuestionnaire";
 import RetailAnalyticsPrivacy from "./pages/RetailAnalyticsPrivacy";
 import RetailAnalyticsSupport from "./pages/RetailAnalyticsSupport";
+import CspRetailAnalyticsMarketing from "./pages/CspRetailAnalyticsMarketing";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,8 @@ const App = () => (
           <Route path="/support/" element={<RetailAnalyticsSupport />} />
           <Route path="/support/retail-analytics" element={<RetailAnalyticsSupport />} />
           <Route path="/support/retail-analytics/" element={<RetailAnalyticsSupport />} />
+          <Route path="/partners/csp-retail-analytics" element={<CspRetailAnalyticsMarketing />} />
+          <Route path="/partners/csp-retail-analytics/" element={<CspRetailAnalyticsMarketing />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
