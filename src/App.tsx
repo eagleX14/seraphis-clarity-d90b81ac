@@ -19,6 +19,7 @@ import AzureCloud from "./pages/AzureCloud";
 import BlogPost from "./pages/BlogPost";
 import DiagnosticQuestionnaire from "./pages/DiagnosticQuestionnaire";
 import RetailAnalyticsPrivacy from "./pages/RetailAnalyticsPrivacy";
+import RetailAnalyticsSupport from "./pages/RetailAnalyticsSupport";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,10 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
           <Route path="/privacy/retail-analytics" element={<RetailAnalyticsPrivacy />} />
           <Route path="/privacy/retail-analytics/" element={<RetailAnalyticsPrivacy />} />
+          <Route path="/support" element={<RetailAnalyticsSupport />} />
+          <Route path="/support/" element={<RetailAnalyticsSupport />} />
+          <Route path="/support/retail-analytics" element={<RetailAnalyticsSupport />} />
+          <Route path="/support/retail-analytics/" element={<RetailAnalyticsSupport />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
