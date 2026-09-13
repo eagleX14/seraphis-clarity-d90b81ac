@@ -34,6 +34,7 @@ const Footer = () => (
               { label: "Industry Solutions", path: "/industries" },
               { label: "Self-Diagnosis", path: "/diagnostic-questionnaire" },
               { label: "Insights", path: "/insights" },
+              { label: "Careers", path: "/careers" },
             ].map((link) => (
               <Link
                 key={link.path}
@@ -90,7 +91,6 @@ const Footer = () => (
               <MessageCircle size={16} className="shrink-0 text-green-400" />
               WhatsApp Seraphis
             </a>
-
 
             <div className="flex items-start gap-2">
               <MapPin size={16} className="mt-0.5 shrink-0 text-sky-400" />
