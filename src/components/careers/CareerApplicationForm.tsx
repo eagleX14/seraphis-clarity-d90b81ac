@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from "react";
 import { FileText, Send, ShieldCheck, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -52,7 +52,7 @@ const CareerApplicationForm = ({ initialRole = "", compactHeading = false }: Car
     return true;
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     if (!validateFiles(event.currentTarget)) {
       event.preventDefault();
     }
@@ -241,7 +241,7 @@ const CareerApplicationForm = ({ initialRole = "", compactHeading = false }: Car
   );
 };
 
-const Field = ({ label, children }: { label: string; children: React.ReactNode }) => (
+const Field = ({ label, children }: { label: string; children: ReactNode }) => (
   <div className="space-y-1.5">
     <label className="text-sm font-semibold text-seraphis-heading">{label}</label>
     {children}
