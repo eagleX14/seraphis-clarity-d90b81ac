@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ElementType } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import {
   ArrowRight,
@@ -24,6 +24,14 @@ const Careers = () => {
   const [category, setCategory] = useState<"All" | CareerCategory>("All");
   const initialRole = searchParams.get("role") ?? "";
   const submitted = searchParams.get("submitted") === "1";
+
+  useEffect(() => {
+    if (!initialRole) return;
+    const timer = window.setTimeout(() => {
+      document.getElementById("apply")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [initialRole]);
 
   const filteredRoles = useMemo(() => {
     const needle = query.trim().toLowerCase();
@@ -232,7 +240,7 @@ const Careers = () => {
   );
 };
 
-const HeroPoint = ({ icon: Icon, title, text }: { icon: React.ElementType; title: string; text: string }) => (
+const HeroPoint = ({ icon: Icon, title, text }: { icon: ElementType; title: string; text: string }) => (
   <div className="glass-card">
     <Icon className="mb-3 text-seraphis-sky-light" size={22} />
     <div className="text-sm font-bold text-secondary">{title}</div>
