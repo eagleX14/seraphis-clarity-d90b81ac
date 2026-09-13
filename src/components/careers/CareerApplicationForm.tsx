@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FileText, Send, ShieldCheck, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +23,10 @@ const CareerApplicationForm = ({ initialRole = "", compactHeading = false }: Car
   const [email, setEmail] = useState("");
   const [primaryRole, setPrimaryRole] = useState(initialTitle);
   const [fileError, setFileError] = useState("");
+
+  useEffect(() => {
+    if (initialTitle) setPrimaryRole(initialTitle);
+  }, [initialTitle]);
 
   const validateFiles = (form: HTMLFormElement) => {
     const fileInputs = Array.from(form.querySelectorAll<HTMLInputElement>('input[type="file"]'));
