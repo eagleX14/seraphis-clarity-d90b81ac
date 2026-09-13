@@ -31,7 +31,7 @@ const CareerRole = () => {
       />
 
       <section className="hero-shell">
-        <div className="section-container py-14 md:py-18 lg:py-20">
+        <div className="section-container py-14 md:py-16 lg:py-20">
           <Link to="/careers" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-white/75 transition-colors hover:text-white">
             <ArrowLeft size={16} /> Back to Careers
           </Link>
