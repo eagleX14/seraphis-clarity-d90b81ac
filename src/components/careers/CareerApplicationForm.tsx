@@ -100,7 +100,7 @@ const CareerApplicationForm = ({ role, general = false }: CareerApplicationFormP
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Application</span>
         <h2 className="text-3xl">{general ? "Join our specialist network" : "Apply for this role"}</h2>
         <p className="text-sm text-muted-foreground">
-          Submit your CV, relevant credentials, availability and contract-rate expectations.
+          Submit your CV, relevant credentials, availability and contract-rate expectations. Fields marked * are required; other fields may be left blank if they are not applicable.
         </p>
       </div>
 
@@ -126,8 +126,8 @@ const CareerApplicationForm = ({ role, general = false }: CareerApplicationFormP
           <Input name="Current Location" required placeholder="e.g. Gauteng / Johannesburg" />
         </label>
         <label className="space-y-1.5 text-sm font-medium text-seraphis-heading">
-          LinkedIn Profile URL *
-          <Input type="url" name="LinkedIn Profile" required placeholder="https://www.linkedin.com/in/..." />
+          LinkedIn Profile URL
+          <Input type="url" name="LinkedIn Profile" autoComplete="url" placeholder="Optional — https://www.linkedin.com/in/..." />
         </label>
         <label className="space-y-1.5 text-sm font-medium text-seraphis-heading">
           Years of Relevant Experience *
@@ -200,17 +200,17 @@ const CareerApplicationForm = ({ role, general = false }: CareerApplicationFormP
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="space-y-1.5 text-sm font-medium text-seraphis-heading">
           Portfolio URL
-          <Input type="url" name="Portfolio URL" placeholder="https://..." />
+          <Input type="url" name="Portfolio URL" autoComplete="url" placeholder="Optional — https://..." />
         </label>
         <label className="space-y-1.5 text-sm font-medium text-seraphis-heading">
           GitHub URL
-          <Input type="url" name="GitHub URL" placeholder="https://github.com/..." />
+          <Input type="url" name="GitHub URL" autoComplete="url" placeholder="Optional — https://github.com/..." />
         </label>
       </div>
 
       <div className="space-y-1.5">
         <label className="text-sm font-medium text-seraphis-heading">Additional Message</label>
-        <Textarea name="Additional Message" rows={4} placeholder="Add any information relevant to your application." />
+        <Textarea name="Additional Message" rows={4} placeholder="Optional — add any information relevant to your application." />
       </div>
 
       <div className="grid gap-5 md:grid-cols-2">
