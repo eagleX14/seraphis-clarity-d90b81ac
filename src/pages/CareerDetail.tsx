@@ -6,6 +6,7 @@ import CareerApplicationForm from "@/components/careers/CareerApplicationForm";
 import CareerRoleCard from "@/components/careers/CareerRoleCard";
 import { Button } from "@/components/ui/button";
 import { activeCareerRoles } from "@/data/careers";
+import { getProjectDuration, getPublicOverview, publicEngagementLabel } from "@/data/careerPresentation";
 
 const CareerDetail = () => {
   const { slug } = useParams();
@@ -24,9 +25,8 @@ const CareerDetail = () => {
       "@context": "https://schema.org/",
       "@type": "JobPosting",
       title: role.title,
-      description: `${role.overview} ${role.minimumRequirements.join(" ")}`,
+      description: `${getPublicOverview(role)} ${role.minimumRequirements.join(" ")}`,
       datePosted: role.datePosted,
-      employmentType: "CONTRACTOR",
       hiringOrganization: {
         "@type": "Organization",
         name: "Seraphis IT and Data Solutions (Pty) Ltd",
@@ -61,8 +61,8 @@ const CareerDetail = () => {
               <Button variant="hero" size="lg" onClick={scrollToApplication}>Apply for this role</Button>
             </div>
             <div className="glass-card grid gap-4 sm:grid-cols-2">
-              <div className="flex gap-3"><BriefcaseBusiness className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Type</div><div className="mt-1 font-semibold text-white">{role.employmentType}</div></div></div>
-              <div className="flex gap-3"><Clock3 className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Duration</div><div className="mt-1 font-semibold text-white">{role.contractDuration}</div></div></div>
+              <div className="flex gap-3"><BriefcaseBusiness className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Engagement</div><div className="mt-1 font-semibold text-white">{publicEngagementLabel}</div></div></div>
+              <div className="flex gap-3"><Clock3 className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Current project horizon</div><div className="mt-1 font-semibold text-white">{getProjectDuration(role)}</div></div></div>
               <div className="flex gap-3"><MapPin className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Location</div><div className="mt-1 font-semibold text-white">{role.location}</div></div></div>
               <div className="flex gap-3"><Users className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Positions</div><div className="mt-1 font-semibold text-white">{role.numberOfPositions ?? 1}</div></div></div>
               <div className="sm:col-span-2 border-t border-white/10 pt-4"><div className="text-xs uppercase tracking-wider text-white/55">Work arrangement</div><div className="mt-1 font-semibold text-white">{role.workArrangement}</div></div>
@@ -78,7 +78,7 @@ const CareerDetail = () => {
               <section className="space-y-4">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Role Overview</span>
                 <h2 className="text-3xl">The role</h2>
-                <p className="text-lg text-muted-foreground">{role.overview}</p>
+                <p className="text-lg text-muted-foreground">{getPublicOverview(role)}</p>
               </section>
 
               <section className="space-y-5">
@@ -154,7 +154,7 @@ const CareerDetail = () => {
                   <div className="flex gap-2"><CheckCircle2 size={17} className="mt-0.5 text-primary" />Detailed CV</div>
                   <div className="flex gap-2"><CheckCircle2 size={17} className="mt-0.5 text-primary" />Relevant certification evidence</div>
                   <div className="flex gap-2"><CheckCircle2 size={17} className="mt-0.5 text-primary" />Availability and notice period</div>
-                  <div className="flex gap-2"><CheckCircle2 size={17} className="mt-0.5 text-primary" />Expected contract rate</div>
+                  <div className="flex gap-2"><CheckCircle2 size={17} className="mt-0.5 text-primary" />Expected rate / compensation</div>
                 </div>
                 <Button variant="hero" className="w-full" onClick={scrollToApplication}>Apply Now</Button>
               </div>
