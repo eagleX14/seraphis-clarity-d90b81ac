@@ -22,6 +22,10 @@ import RetailAnalyticsPrivacy from "./pages/RetailAnalyticsPrivacy";
 import RetailAnalyticsSupport from "./pages/RetailAnalyticsSupport";
 import CspRetailAnalyticsMarketing from "./pages/CspRetailAnalyticsMarketing";
 import RetailAnalyticsScaling from "./pages/RetailAnalyticsScaling";
+import Careers from "./pages/Careers";
+import CareerDetail from "./pages/CareerDetail";
+import CareerGeneralApplication from "./pages/CareerGeneralApplication";
+import CareerApplicationReceived from "./pages/CareerApplicationReceived";
 
 const queryClient = new QueryClient();
 
@@ -48,6 +52,10 @@ const App = () => (
               <Route path="/azure-cloud-solutions" element={<AzureCloud />} />
               <Route path="/diagnostic-questionnaire" element={<DiagnosticQuestionnaire />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/careers/general-application" element={<CareerGeneralApplication />} />
+              <Route path="/careers/application-received" element={<CareerApplicationReceived />} />
+              <Route path="/careers/:slug" element={<CareerDetail />} />
           <Route path="/privacy/retail-analytics" element={<RetailAnalyticsPrivacy />} />
           <Route path="/privacy/retail-analytics/" element={<RetailAnalyticsPrivacy />} />
           <Route path="/support" element={<RetailAnalyticsSupport />} />
