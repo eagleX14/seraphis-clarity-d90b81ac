@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, BriefcaseBusiness, Search, ShieldCheck, UsersRound } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/SectionHeading";
 import CareerRoleCard from "@/components/careers/CareerRoleCard";
@@ -43,48 +43,6 @@ const Careers = () => {
         title="Careers | Seraphis IT and Data Solutions"
         description="Explore contract opportunities with Seraphis across Microsoft cloud, Dynamics 365, cybersecurity, managed infrastructure, Mimecast and enterprise technology delivery."
       />
-
-      <section className="hero-shell">
-        <div className="section-container py-16 md:py-20 lg:py-24">
-          <div className="grid gap-10 xl:grid-cols-[1.12fr,0.88fr] xl:items-center">
-            <div className="space-y-7">
-              <span className="sales-pill">Careers • Specialist Contract Opportunities</span>
-              <div className="space-y-5">
-                <h1 className="max-w-4xl">Build complex technology. Solve real operational problems.</h1>
-                <p className="max-w-3xl text-xl">
-                  Seraphis works with specialist professionals across cloud, cybersecurity, Microsoft business applications, managed infrastructure and enterprise communications. Our project teams are assembled around clearly defined technical requirements.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-4">
-                <Button variant="hero" size="lg" asChild>
-                  <a href="#open-roles">View Open Roles</a>
-                </Button>
-                <Button variant="outline" size="lg" className="border-white/25 bg-white/10 text-white hover:bg-white hover:text-seraphis-heading" asChild>
-                  <Link to="/careers/general-application">Join Our Specialist Network</Link>
-                </Button>
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="glass-card sm:col-span-2">
-                <BriefcaseBusiness className="mb-4 text-seraphis-sky-light" size={28} />
-                <h3 className="text-2xl">Project-defined work</h3>
-                <p className="mt-3 text-sm">Opportunities are primarily fixed-term or project-based, with scope and duration aligned to the specialist work required.</p>
-              </div>
-              <div className="glass-card">
-                <ShieldCheck className="mb-4 text-seraphis-sky-light" size={24} />
-                <div className="font-bold text-secondary">Evidence matters</div>
-                <p className="mt-2 text-sm">Relevant project history, current certifications and clearly documented technical responsibilities are important.</p>
-              </div>
-              <div className="glass-card">
-                <UsersRound className="mb-4 text-seraphis-sky-light" size={24} />
-                <div className="font-bold text-secondary">Specialist teams</div>
-                <p className="mt-2 text-sm">We recruit against defined technical capabilities rather than generic job families.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section id="open-roles" className="section-padding bg-card scroll-mt-28">
         <div className="section-container">
