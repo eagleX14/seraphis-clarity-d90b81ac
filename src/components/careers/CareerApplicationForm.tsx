@@ -100,7 +100,7 @@ const CareerApplicationForm = ({ role, general = false }: CareerApplicationFormP
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Application</span>
         <h2 className="text-3xl">{general ? "Join our specialist network" : "Apply for this role"}</h2>
         <p className="text-sm text-muted-foreground">
-          Submit your CV, relevant credentials, availability and contract-rate expectations. Fields marked * are required; other fields may be left blank if they are not applicable.
+          Submit your CV, relevant credentials, availability and rate / compensation expectations. Fields marked * are required; other fields may be left blank if they are not applicable.
         </p>
       </div>
 
@@ -149,8 +149,8 @@ const CareerApplicationForm = ({ role, general = false }: CareerApplicationFormP
           <Input name="Notice Period" required placeholder="e.g. Immediate / 30 days" />
         </label>
         <label className="space-y-1.5 text-sm font-medium text-seraphis-heading">
-          Expected Contract Rate *
-          <Input name="Expected Contract Rate" required placeholder="Hourly, daily or monthly rate" />
+          Expected Rate / Compensation *
+          <Input name="Expected Rate / Compensation" required placeholder="Hourly, daily or monthly expectation" />
         </label>
         <label className="space-y-1.5 text-sm font-medium text-seraphis-heading sm:col-span-2">
           Right to Work in South Africa *
