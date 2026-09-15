@@ -100,7 +100,7 @@ const CareerApplicationForm = ({ role, general = false }: CareerApplicationFormP
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Application</span>
         <h2 className="text-3xl">{general ? "Join our specialist network" : "Apply for this role"}</h2>
         <p className="text-sm text-muted-foreground">
-          Submit your CV, relevant credentials, availability and contract-rate expectations. Applications are sent directly to info@seraphis-it.com.
+          Submit your CV, relevant credentials, availability and contract-rate expectations.
         </p>
       </div>
 
