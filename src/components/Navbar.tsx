@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Industries", path: "/industries" },
   { label: "Diagnostic", path: "/diagnostic-questionnaire" },
   { label: "Insights", path: "/insights" },
+  { label: "Careers", path: "/careers" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -44,7 +45,7 @@ const Navbar = () => {
               key={link.path}
               to={link.path}
               className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                location.pathname === link.path
+                location.pathname === link.path || (link.path === "/careers" && location.pathname.startsWith("/careers/"))
                   ? "bg-accent text-primary"
                   : "text-seraphis-body hover:bg-accent/60 hover:text-primary"
               }`}
@@ -81,7 +82,7 @@ const Navbar = () => {
                 to={link.path}
                 onClick={() => setMobileOpen(false)}
                 className={`rounded-md px-4 py-3 text-sm font-medium transition-colors ${
-                  location.pathname === link.path
+                  location.pathname === link.path || (link.path === "/careers" && location.pathname.startsWith("/careers/"))
                     ? "bg-accent text-primary"
                     : "text-seraphis-body hover:bg-accent/50 hover:text-primary"
                 }`}

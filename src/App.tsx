@@ -22,6 +22,8 @@ import RetailAnalyticsPrivacy from "./pages/RetailAnalyticsPrivacy";
 import RetailAnalyticsSupport from "./pages/RetailAnalyticsSupport";
 import CspRetailAnalyticsMarketing from "./pages/CspRetailAnalyticsMarketing";
 import RetailAnalyticsScaling from "./pages/RetailAnalyticsScaling";
+import Careers from "./pages/Careers";
+import CareerRole from "./pages/CareerRole";
 
 const queryClient = new QueryClient();
 
@@ -47,21 +49,23 @@ const App = () => (
               <Route path="/microsoft-365" element={<Microsoft365 />} />
               <Route path="/azure-cloud-solutions" element={<AzureCloud />} />
               <Route path="/diagnostic-questionnaire" element={<DiagnosticQuestionnaire />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/careers/:slug" element={<CareerRole />} />
               <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy/retail-analytics" element={<RetailAnalyticsPrivacy />} />
-          <Route path="/privacy/retail-analytics/" element={<RetailAnalyticsPrivacy />} />
-          <Route path="/support" element={<RetailAnalyticsSupport />} />
-          <Route path="/support/" element={<RetailAnalyticsSupport />} />
-          <Route path="/support/retail-analytics" element={<RetailAnalyticsSupport />} />
-          <Route path="/support/retail-analytics/" element={<RetailAnalyticsSupport />} />
-          <Route path="/partners/csp-retail-analytics" element={<CspRetailAnalyticsMarketing />} />
-          <Route path="/partners/csp-retail-analytics/" element={<CspRetailAnalyticsMarketing />} />
-          <Route path="/solutions/retail-analytics-scaling" element={<RetailAnalyticsScaling />} />
-          <Route path="/solutions/retail-analytics-scaling/" element={<RetailAnalyticsScaling />} />
-          <Route path="/retail-analytics" element={<RetailAnalyticsScaling />} />
-          <Route path="/retail-analytics/" element={<RetailAnalyticsScaling />} />
-          <Route path="/retail-analytics-scaling" element={<RetailAnalyticsScaling />} />
-          <Route path="/retail-analytics-scaling/" element={<RetailAnalyticsScaling />} />
+              <Route path="/privacy/retail-analytics" element={<RetailAnalyticsPrivacy />} />
+              <Route path="/privacy/retail-analytics/" element={<RetailAnalyticsPrivacy />} />
+              <Route path="/support" element={<RetailAnalyticsSupport />} />
+              <Route path="/support/" element={<RetailAnalyticsSupport />} />
+              <Route path="/support/retail-analytics" element={<RetailAnalyticsSupport />} />
+              <Route path="/support/retail-analytics/" element={<RetailAnalyticsSupport />} />
+              <Route path="/partners/csp-retail-analytics" element={<CspRetailAnalyticsMarketing />} />
+              <Route path="/partners/csp-retail-analytics/" element={<CspRetailAnalyticsMarketing />} />
+              <Route path="/solutions/retail-analytics-scaling" element={<RetailAnalyticsScaling />} />
+              <Route path="/solutions/retail-analytics-scaling/" element={<RetailAnalyticsScaling />} />
+              <Route path="/retail-analytics" element={<RetailAnalyticsScaling />} />
+              <Route path="/retail-analytics/" element={<RetailAnalyticsScaling />} />
+              <Route path="/retail-analytics-scaling" element={<RetailAnalyticsScaling />} />
+              <Route path="/retail-analytics-scaling/" element={<RetailAnalyticsScaling />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
