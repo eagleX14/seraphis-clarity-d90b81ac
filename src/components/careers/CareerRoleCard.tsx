@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Award, BriefcaseBusiness, Clock3, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { CareerRole } from "@/data/careers";
+import { getProjectDuration, publicEngagementLabel } from "@/data/careerPresentation";
 
 const CareerRoleCard = ({ role }: { role: CareerRole }) => (
   <article className="seraphis-card flex h-full flex-col gap-5">
     <div className="flex flex-wrap gap-2">
       <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-primary">{role.practiceArea}</span>
-      <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-seraphis-body">{role.employmentType}</span>
+      <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-seraphis-body">{publicEngagementLabel}</span>
     </div>
 
     <div className="space-y-3">
@@ -17,7 +18,7 @@ const CareerRoleCard = ({ role }: { role: CareerRole }) => (
 
     <div className="grid gap-2 text-sm text-seraphis-body sm:grid-cols-2">
       <div className="flex items-center gap-2"><MapPin size={16} className="text-primary" />{role.location}</div>
-      <div className="flex items-center gap-2"><Clock3 size={16} className="text-primary" />{role.contractDuration}</div>
+      <div className="flex items-center gap-2"><Clock3 size={16} className="text-primary" />{getProjectDuration(role)}</div>
       <div className="flex items-center gap-2"><BriefcaseBusiness size={16} className="text-primary" />{role.experienceLabel}</div>
       {role.certificationTags.length > 0 && (
         <div className="flex items-center gap-2"><Award size={16} className="text-primary" />{role.certificationTags.join(" / ")}</div>
