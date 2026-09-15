@@ -5,14 +5,13 @@ import SEO from "@/components/SEO";
 import SectionHeading from "@/components/SectionHeading";
 import CareerRoleCard from "@/components/careers/CareerRoleCard";
 import { Button } from "@/components/ui/button";
-import { activeCareerRoles, certificationFilters, contractDurations, experienceFilters, practiceAreas } from "@/data/careers";
+import { activeCareerRoles, certificationFilters, experienceFilters, practiceAreas } from "@/data/careers";
 
 const selectClass = "h-11 rounded-md border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring";
 
 const Careers = () => {
   const [query, setQuery] = useState("");
   const [practiceArea, setPracticeArea] = useState("All");
-  const [duration, setDuration] = useState("All");
   const [experience, setExperience] = useState("All");
   const [certification, setCertification] = useState("All");
 
@@ -22,17 +21,15 @@ const Careers = () => {
       const text = [role.title, role.practiceArea, role.summary, ...(role.technicalSkills ?? [])].join(" ").toLowerCase();
       const queryMatch = !normalizedQuery || text.includes(normalizedQuery);
       const practiceMatch = practiceArea === "All" || role.practiceArea === practiceArea;
-      const durationMatch = duration === "All" || role.contractDuration === duration;
       const experienceMatch = experience === "All" || role.experienceFilter === experience;
       const certificationMatch = certification === "All" || role.certificationTags.includes(certification);
-      return queryMatch && practiceMatch && durationMatch && experienceMatch && certificationMatch;
+      return queryMatch && practiceMatch && experienceMatch && certificationMatch;
     });
-  }, [query, practiceArea, duration, experience, certification]);
+  }, [query, practiceArea, experience, certification]);
 
   const resetFilters = () => {
     setQuery("");
     setPracticeArea("All");
-    setDuration("All");
     setExperience("All");
     setCertification("All");
   };
@@ -41,7 +38,7 @@ const Careers = () => {
     <main>
       <SEO
         title="Careers | Seraphis IT and Data Solutions"
-        description="Explore contract opportunities with Seraphis across Microsoft cloud, Dynamics 365, cybersecurity, managed infrastructure, Mimecast and enterprise technology delivery."
+        description="Explore specialist project opportunities with Seraphis across Microsoft cloud, Dynamics 365, cybersecurity, managed infrastructure, Mimecast and enterprise technology delivery."
       />
 
       <section id="open-roles" className="section-padding bg-card scroll-mt-28">
@@ -49,11 +46,11 @@ const Careers = () => {
           <SectionHeading
             label="Open Roles"
             title="Current specialist opportunities"
-            description="Search by practice area, contract duration, experience or certification. Open a role for the complete requirements before applying."
+            description="Search by practice area, experience or certification. Each role shows the current project horizon that created the requirement, while suitable specialists may also be considered for subsequent projects."
           />
 
           <div className="mb-10 rounded-2xl border border-border bg-background p-5 shadow-sm md:p-6">
-            <div className="grid gap-4 xl:grid-cols-[1.5fr,1fr,1fr,1fr,1fr]">
+            <div className="grid gap-4 xl:grid-cols-[1.6fr,1fr,1fr,1fr]">
               <label className="relative">
                 <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                 <input
@@ -66,10 +63,6 @@ const Careers = () => {
               <select value={practiceArea} onChange={(e) => setPracticeArea(e.target.value)} className={selectClass} aria-label="Filter by practice area">
                 <option>All</option>
                 {practiceAreas.map((value) => <option key={value}>{value}</option>)}
-              </select>
-              <select value={duration} onChange={(e) => setDuration(e.target.value)} className={selectClass} aria-label="Filter by contract duration">
-                <option>All</option>
-                {contractDurations.map((value) => <option key={value}>{value}</option>)}
               </select>
               <select value={experience} onChange={(e) => setExperience(e.target.value)} className={selectClass} aria-label="Filter by experience">
                 <option>All</option>
