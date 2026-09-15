@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Industries", path: "/industries" },
   { label: "Diagnostic", path: "/diagnostic-questionnaire" },
   { label: "Insights", path: "/insights" },
+  { label: "Careers", path: "/careers" },
   { label: "Contact", path: "/contact" },
 ];
 
