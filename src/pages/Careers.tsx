@@ -86,29 +86,6 @@ const Careers = () => {
         </div>
       </section>
 
-      <section className="section-padding section-surface">
-        <div className="section-container">
-          <SectionHeading
-            label="How We Recruit"
-            title="Clear requirements. Contract clarity. Evidence-led selection."
-            description="We look for professionals whose experience maps directly to the technology, delivery and governance requirements of the engagement."
-          />
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              ["01", "Defined technical scope", "Each opportunity is described around the actual technology, responsibilities, experience and certifications expected from the role."],
-              ["02", "Verifiable capability", "Applicants should provide accurate CVs, current certification evidence and project experience that clearly shows what they personally delivered."],
-              ["03", "Contract-based engagement", "Role duration and working arrangements are communicated per engagement. Contract opportunities do not imply permanent employment."],
-            ].map(([step, title, copy]) => (
-              <div key={step} className="seraphis-card">
-                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-primary text-sm font-extrabold text-white">{step}</div>
-                <h3 className="text-xl">{title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{copy}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="open-roles" className="section-padding bg-card scroll-mt-28">
         <div className="section-container">
           <SectionHeading
