@@ -20,8 +20,6 @@ const roleTimelines: Record<string, string> = {
   "it-service-manager": "36 months",
 };
 
-export const publicEngagementLabel = "Project-based";
-
 export const getProjectDuration = (role: CareerRole) =>
   roleTimelines[role.id] ?? role.contractDuration;
 
@@ -35,6 +33,6 @@ export const getPublicOverview = (role: CareerRole) => {
   }
 
   return role.overview
-    .replace(/fixed-term/gi, "project-based")
+    .replace(/fixed-term/gi, "engagement")
     .replace(/contract period/gi, "engagement period");
 };
