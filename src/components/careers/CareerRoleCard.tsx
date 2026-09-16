@@ -5,7 +5,7 @@ import type { CareerRole } from "@/data/careers";
 import { getProjectDuration } from "@/data/careerPresentation";
 
 const CareerRoleCard = ({ role }: { role: CareerRole }) => (
-  <article className="seraphis-card flex h-full flex-col gap-5">
+  <article className="seraphis-card flex h-full flex-col gap-5" aria-label={`${role.title} opportunity`}>
     <div className="flex flex-wrap gap-2">
       <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-primary">{role.practiceArea}</span>
     </div>
