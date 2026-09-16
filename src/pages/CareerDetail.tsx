@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { ArrowLeft, Award, BriefcaseBusiness, CheckCircle2, Clock3, MapPin, Users } from "lucide-react";
+import { ArrowLeft, Award, CheckCircle2, Clock3, MapPin, Users } from "lucide-react";
 import SEO from "@/components/SEO";
 import CareerApplicationForm from "@/components/careers/CareerApplicationForm";
 import CareerRoleCard from "@/components/careers/CareerRoleCard";
 import { Button } from "@/components/ui/button";
 import { activeCareerRoles } from "@/data/careers";
-import { getProjectDuration, getPublicOverview, publicEngagementLabel } from "@/data/careerPresentation";
+import { getProjectDuration, getPublicOverview } from "@/data/careerPresentation";
 
 const CareerDetail = () => {
   const { slug } = useParams();
@@ -61,7 +61,6 @@ const CareerDetail = () => {
               <Button variant="hero" size="lg" onClick={scrollToApplication}>Apply for this role</Button>
             </div>
             <div className="glass-card grid gap-4 sm:grid-cols-2">
-              <div className="flex gap-3"><BriefcaseBusiness className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Engagement</div><div className="mt-1 font-semibold text-white">{publicEngagementLabel}</div></div></div>
               <div className="flex gap-3"><Clock3 className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Timeline</div><div className="mt-1 font-semibold text-white">{getProjectDuration(role)}</div></div></div>
               <div className="flex gap-3"><MapPin className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Location</div><div className="mt-1 font-semibold text-white">{role.location}</div></div></div>
               <div className="flex gap-3"><Users className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Positions</div><div className="mt-1 font-semibold text-white">{role.numberOfPositions ?? 1}</div></div></div>
