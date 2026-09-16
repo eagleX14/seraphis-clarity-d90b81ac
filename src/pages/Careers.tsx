@@ -38,7 +38,7 @@ const Careers = () => {
     <main>
       <SEO
         title="Careers | Seraphis IT and Data Solutions"
-        description="Explore specialist project opportunities with Seraphis across Microsoft cloud, Dynamics 365, cybersecurity, managed infrastructure, Mimecast and enterprise technology delivery."
+        description="Explore specialist opportunities with Seraphis across Microsoft cloud, Dynamics 365, cybersecurity, managed infrastructure, Mimecast and enterprise technology delivery."
       />
 
       <section id="open-roles" className="section-padding bg-card scroll-mt-28">
@@ -46,7 +46,7 @@ const Careers = () => {
           <SectionHeading
             label="Open Roles"
             title="Current specialist opportunities"
-            description="Search by practice area, experience or certification. Each role shows the current project horizon that created the requirement, while suitable specialists may also be considered for subsequent projects."
+            description="Search by practice area, experience or certification. Open a role to view the exact timeline and requirements before applying."
           />
 
           <div className="mb-10 rounded-2xl border border-border bg-background p-5 shadow-sm md:p-6">
