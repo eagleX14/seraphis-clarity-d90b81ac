@@ -2,13 +2,12 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Award, BriefcaseBusiness, Clock3, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { CareerRole } from "@/data/careers";
-import { getProjectDuration, publicEngagementLabel } from "@/data/careerPresentation";
+import { getProjectDuration } from "@/data/careerPresentation";
 
 const CareerRoleCard = ({ role }: { role: CareerRole }) => (
   <article className="seraphis-card flex h-full flex-col gap-5">
     <div className="flex flex-wrap gap-2">
       <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-primary">{role.practiceArea}</span>
-      <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-seraphis-body">{publicEngagementLabel}</span>
     </div>
 
     <div className="space-y-3">
