@@ -4,37 +4,57 @@ interface SEOProps {
   title: string;
   description: string;
   canonicalPath?: string;
+  robots?: string;
+  type?: "website" | "article";
+  image?: string;
 }
 
-const CANONICAL_ORIGIN = "https://www.seraphis-it.com";
+const CANONICAL_ORIGIN = "https://seraphis-it.com";
 
-const SEO = ({ title, description, canonicalPath }: SEOProps) => {
+const ensureMeta = (selector: string, attribute: "name" | "property", key: string) => {
+  let element = document.querySelector(selector) as HTMLMetaElement | null;
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+  return element;
+};
+
+const SEO = ({
+  title,
+  description,
+  canonicalPath,
+  robots = "index,follow",
+  type = "website",
+  image,
+}: SEOProps) => {
   useEffect(() => {
     document.title = title;
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement("meta");
-      metaDescription.setAttribute("name", "description");
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute("content", description);
+    ensureMeta('meta[name="description"]', "name", "description").setAttribute("content", description);
+    ensureMeta('meta[name="robots"]', "name", "robots").setAttribute("content", robots);
 
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (!ogTitle) {
-      ogTitle = document.createElement("meta");
-      ogTitle.setAttribute("property", "og:title");
-      document.head.appendChild(ogTitle);
-    }
-    ogTitle.setAttribute("content", title);
+    ensureMeta('meta[property="og:site_name"]', "property", "og:site_name").setAttribute(
+      "content",
+      "Seraphis IT and Data Solutions",
+    );
+    ensureMeta('meta[property="og:type"]', "property", "og:type").setAttribute("content", type);
+    ensureMeta('meta[property="og:title"]', "property", "og:title").setAttribute("content", title);
+    ensureMeta('meta[property="og:description"]', "property", "og:description").setAttribute(
+      "content",
+      description,
+    );
 
-    let ogDescription = document.querySelector('meta[property="og:description"]');
-    if (!ogDescription) {
-      ogDescription = document.createElement("meta");
-      ogDescription.setAttribute("property", "og:description");
-      document.head.appendChild(ogDescription);
-    }
-    ogDescription.setAttribute("content", description);
+    ensureMeta('meta[name="twitter:card"]', "name", "twitter:card").setAttribute(
+      "content",
+      image ? "summary_large_image" : "summary",
+    );
+    ensureMeta('meta[name="twitter:title"]', "name", "twitter:title").setAttribute("content", title);
+    ensureMeta('meta[name="twitter:description"]', "name", "twitter:description").setAttribute(
+      "content",
+      description,
+    );
 
     const path = canonicalPath ?? window.location.pathname;
     const normalizedPath = path === "/" ? "/" : path.replace(/\/+$/, "");
@@ -48,14 +68,20 @@ const SEO = ({ title, description, canonicalPath }: SEOProps) => {
     }
     canonical.href = canonicalUrl;
 
-    let ogUrl = document.querySelector('meta[property="og:url"]');
-    if (!ogUrl) {
-      ogUrl = document.createElement("meta");
-      ogUrl.setAttribute("property", "og:url");
-      document.head.appendChild(ogUrl);
+    ensureMeta('meta[property="og:url"]', "property", "og:url").setAttribute("content", canonicalUrl);
+
+    const existingOgImage = document.querySelector('meta[property="og:image"]') as HTMLMetaElement | null;
+    const existingTwitterImage = document.querySelector('meta[name="twitter:image"]') as HTMLMetaElement | null;
+
+    if (image) {
+      const imageUrl = image.startsWith("http") ? image : `${CANONICAL_ORIGIN}${image}`;
+      ensureMeta('meta[property="og:image"]', "property", "og:image").setAttribute("content", imageUrl);
+      ensureMeta('meta[name="twitter:image"]', "name", "twitter:image").setAttribute("content", imageUrl);
+    } else {
+      existingOgImage?.remove();
+      existingTwitterImage?.remove();
     }
-    ogUrl.setAttribute("content", canonicalUrl);
-  }, [title, description, canonicalPath]);
+  }, [title, description, canonicalPath, robots, type, image]);
 
   return null;
 };
