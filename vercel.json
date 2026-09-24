@@ -1,4 +1,21 @@
 {
+  "redirects": [
+    {
+      "source": "/solutions",
+      "destination": "/business-solutions",
+      "permanent": true
+    },
+    {
+      "source": "/retail-analytics-scaling",
+      "destination": "/retail-analytics",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/retail-analytics-scaling",
+      "destination": "/retail-analytics",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
