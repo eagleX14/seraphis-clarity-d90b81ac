@@ -1,4 +1,5 @@
 import SectionHeading from "@/components/SectionHeading";
+import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Search, BarChart3, Database, Brain, Workflow, Monitor, ArrowRight } from "lucide-react";
@@ -56,10 +57,16 @@ const phases = [
 
 const HowWeWork = () => (
   <main>
+    <SEO
+      title="How We Work | Operational Intelligence Framework | Seraphis"
+      description="See how Seraphis moves from loss discovery and value modelling to governed data, analytics, workflow integration and performance monitoring."
+      canonicalPath="/how-we-work"
+    />
     <section className="section-padding bg-card">
       <div className="section-container">
         <SectionHeading
           label="How We Work"
+          level="h1"
           title="The Seraphis Six-Phase Framework"
           description="A disciplined methodology that moves from operational diagnosis to sustained financial performance improvement — with measurable outcomes at every stage."
         />
