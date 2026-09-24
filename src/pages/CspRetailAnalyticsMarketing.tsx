@@ -1,9 +1,15 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const CspRetailAnalyticsMarketing = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <SEO
+        title="Retail Analytics Partner Resources | Seraphis IT"
+        description="Partner enablement resources for positioning and selling Seraphis Retail Analytics through Microsoft and CSP channels."
+        canonicalPath="/partners/csp-retail-analytics"
+      />
       <section className="border-b bg-muted/30">
         <div className="container mx-auto px-4 py-16 md:py-20">
           <div className="max-w-5xl">
