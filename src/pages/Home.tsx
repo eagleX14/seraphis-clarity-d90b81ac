@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
 import StructuredData from "@/components/StructuredData";
-import seraphisLogo from "@/assets/seraphis-logo.png";
+import seraphisLogo from "@/assets/seraphis-logo-optimized.webp";
 import heroDashboard from "@/assets/hero-dashboard.jpg";
 import platformImg from "@/assets/platform-architecture.jpg";
 import m365Hero from "@/assets/m365-hero.jpg";
