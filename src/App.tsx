@@ -9,6 +9,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Solutions from "./pages/Solutions";
+import OperationalIntelligence from "./pages/OperationalIntelligence";
 import Industries from "./pages/Industries";
 import HowWeWork from "./pages/HowWeWork";
 import Insights from "./pages/Insights";
@@ -43,7 +44,7 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/business-solutions" element={<Solutions />} />
-              <Route path="/operational-intelligence" element={<Solutions />} />
+              <Route path="/operational-intelligence" element={<OperationalIntelligence />} />
               <Route path="/industries" element={<Industries />} />
               <Route path="/how-we-work" element={<HowWeWork />} />
               <Route path="/insights" element={<Insights />} />
