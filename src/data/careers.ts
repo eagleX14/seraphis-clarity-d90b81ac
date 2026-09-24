@@ -67,7 +67,7 @@ export const careerRoles: CareerRole[] = [
     preferredRequirements: ["Experience delivering Azure, Microsoft 365, Dynamics 365, cybersecurity, enterprise communications or managed-infrastructure programmes."],
     certifications: ["PMP", "PRINCE2", "Agile / Scrum or comparable recognised project-management credential"],
     technicalSkills: ["Project governance", "RAID management", "Change control", "Cutover coordination", "Stakeholder management", "Service transition"],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -105,7 +105,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Relevant Microsoft Teams / Microsoft 365 certifications advantageous"],
     technicalSkills: ["Teams Phone", "CCaaS", "IVR", "Call queues", "Enterprise voice", "SIP", "Direct Routing", "Contact-centre reporting"],
     applicationQuestions: [{ id: "teamsExperience", label: "Briefly describe your Microsoft Teams Phone and CCaaS implementation experience.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -129,7 +129,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Relevant Mimecast certifications preferred"],
     technicalSkills: ["Mimecast", "Service delivery", "Email security", "Microsoft 365", "SLA management", "Escalation management"],
     applicationQuestions: [{ id: "mimecastExperience", label: "Briefly describe your Mimecast implementation, administration and service-delivery experience.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -153,7 +153,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Mimecast certification preferred"],
     technicalSkills: ["Mimecast", "Technical account management", "Email security", "Microsoft 365", "Service reviews", "Escalation management"],
     applicationQuestions: [{ id: "mimecastTamExperience", label: "Briefly describe your Mimecast technical account or service-management experience.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -177,7 +177,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Mimecast certification preferred"],
     technicalSkills: ["Mimecast administration", "Email security", "Microsoft 365", "Mail flow", "Policy management", "Incident investigation"],
     applicationQuestions: [{ id: "mimecastEngineerExperience", label: "Briefly describe your hands-on Mimecast implementation and administration experience.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -200,7 +200,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["At least two relevant recognised cybersecurity certifications such as CISSP, CISM, CISA, CEH, Security+, ISO 27001 or relevant Microsoft Security certifications"],
     technicalSkills: ["Security architecture", "Microsoft 365 security", "Identity security", "Endpoint security", "Vulnerability management", "Incident response"],
     applicationQuestions: [{ id: "securityArchitectureExperience", label: "Briefly describe your enterprise security-architecture leadership experience and list your relevant certifications.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -223,7 +223,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Relevant cybersecurity certifications strongly preferred"],
     technicalSkills: ["EDR/XDR", "Endpoint security", "Vulnerability management", "Security monitoring", "Incident response", "Microsoft security"],
     applicationQuestions: [{ id: "cyberEngineerExperience", label: "Briefly describe your hands-on enterprise security operations and engineering experience.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -246,7 +246,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["ISO/IEC 27001 Lead Auditor OR Lead Implementer", "COBIT 2019 Design and Implementation knowledge / certification where applicable"],
     technicalSkills: ["ISO 27001", "COBIT 2019", "GRC", "Control assessment", "Risk assessment", "Remediation planning"],
     applicationQuestions: [{ id: "grcQualifications", label: "List your ISO 27001 and COBIT qualifications and briefly describe your assessment experience.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -270,7 +270,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Relevant Microsoft Dynamics 365 / Power Platform certification required or strongly preferred"],
     technicalSkills: ["Dynamics 365 CE", "Dataverse", "Power Apps", "Power Automate", "Power Pages", "Azure integration"],
     applicationQuestions: [{ id: "d365Experience", label: "Briefly describe your Dynamics 365 CE and Power Platform production experience, including relevant certifications.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -293,7 +293,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Relevant Microsoft certification preferred"],
     technicalSkills: ["Dynamics 365 CE", "Sage 300", "REST APIs", "Dataverse", "Integration monitoring", "Data reconciliation"],
     applicationQuestions: [{ id: "sageIntegration", label: "Briefly describe previous projects where you personally integrated Dynamics 365 with Sage 300.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -316,7 +316,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Relevant Microsoft Dynamics 365 certification preferred"],
     technicalSkills: ["Dynamics 365 F&O", "ERP process analysis", "Functional configuration", "UAT", "Data migration", "Production support"],
     applicationQuestions: [{ id: "foExperience", label: "Briefly describe the Dynamics 365 F&O modules and business processes you have configured and supported.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -340,7 +340,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Relevant Microsoft certification preferred"],
     technicalSkills: ["Dynamics 365", "Dataverse", "REST APIs", "Power Platform", "C#", "JavaScript", "Azure integration"],
     applicationQuestions: [{ id: "d365TechnicalExperience", label: "Briefly describe your Dynamics 365 development and integration experience, including the technologies you used.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -363,7 +363,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Microsoft Certified: Azure Administrator Associate / AZ-104"],
     technicalSkills: ["Azure compute", "Azure storage", "Azure networking", "Microsoft Entra", "Azure Monitor", "Log Analytics", "Azure Backup"],
     applicationQuestions: [{ id: "azure104Certification", label: "Provide your AZ-104 certification / Microsoft Learn credential details and renewal status where applicable.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -386,7 +386,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Microsoft Certified: Azure Solutions Architect Expert / AZ-305"],
     technicalSkills: ["Azure architecture", "Identity and governance", "Networking", "Resilience", "Backup and DR", "Migration architecture"],
     applicationQuestions: [{ id: "azure305Certification", label: "Provide your AZ-305 / Azure Solutions Architect credential details and renewal status where applicable.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -409,7 +409,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["Relevant Microsoft Power Platform certification preferred"],
     technicalSkills: ["Power Apps", "Power Automate", "Dataverse", "Connectors", "REST APIs", "Dynamics 365 integration"],
     applicationQuestions: [{ id: "powerPlatformExperience", label: "Briefly describe the Power Platform applications and integrations you have personally delivered to production.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -433,7 +433,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["At least one relevant infrastructure, cloud, networking, security or Microsoft certification"],
     technicalSkills: ["Azure / hybrid infrastructure", "Virtualisation", "Compute and storage", "WAN / LAN / WLAN", "Microsoft 365", "Unified communications", "Cybersecurity", "Firewalls", "Backup and DR", "Monitoring"],
     applicationQuestions: [{ id: "infrastructureSpecialisation", label: "Identify your strongest managed-infrastructure specialisation areas and the certifications that support them.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
   {
@@ -456,7 +456,7 @@ export const careerRoles: CareerRole[] = [
     certifications: ["ITIL certification advantageous", "Relevant service-management qualification advantageous"],
     technicalSkills: ["IT service management", "SLA management", "Incident management", "Problem management", "Change management", "Service reporting"],
     applicationQuestions: [{ id: "serviceManagementExperience", label: "Briefly describe the managed ICT environments, SLAs and service-management processes you have owned.", required: true }],
-    active: true,
+    active: false,
     datePosted,
   },
 ];
