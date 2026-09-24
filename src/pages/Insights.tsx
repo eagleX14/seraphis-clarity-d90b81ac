@@ -27,7 +27,7 @@ const Insights = () => (
       <div className="section-container grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {blogPosts.map((post) => (
           <article key={post.slug} className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-            <img src={post.image} alt={post.title} className="h-56 w-full object-cover" />
+            <img src={post.image} alt={post.title} loading="lazy" decoding="async" className="h-56 w-full object-cover" />
             <div className="space-y-4 p-6">
               <div className="flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
                 <span>{post.category}</span>
