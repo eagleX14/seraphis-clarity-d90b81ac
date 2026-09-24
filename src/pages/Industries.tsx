@@ -146,13 +146,14 @@ const Industries = () => (
   <main>
     <SEO
       title="Industry Solutions | Seraphis IT and Data Solutions"
-      description="See how Seraphis applies operational intelligence, Microsoft 365, Azure cloud solutions and analytics across schools, retail, logistics, manufacturing, finance and more."
+      description="Technology and data solutions for South African schools, retail, logistics, manufacturing, professional services, healthcare, finance and more."
     />
 
     <section className="hero-shell">
       <div className="section-container py-16 md:py-20 lg:py-24">
         <SectionHeading
           label="Industries"
+          level="h1"
           title="Industry-specific problems need industry-aware solutions"
           description="Each sector has different data, risks, users and performance gaps. Seraphis adapts the offer to the operating reality."
         />
@@ -166,6 +167,8 @@ const Industries = () => (
             <img
               src={industry.image}
               alt={industry.title}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
               className={`w-full rounded-2xl shadow-lg ${index % 2 === 1 ? "xl:order-2" : ""}`}
             />
             <div className={`space-y-5 ${index % 2 === 1 ? "xl:order-1" : ""}`}>
