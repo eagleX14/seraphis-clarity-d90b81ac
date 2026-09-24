@@ -2,14 +2,16 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/SectionHeading";
+import CareerRoleCard from "@/components/careers/CareerRoleCard";
 import { Button } from "@/components/ui/button";
+import { activeCareerRoles } from "@/data/careers";
 
 const Careers = () => {
   return (
     <main>
       <SEO
         title="Careers | Seraphis IT and Data Solutions"
-        description="Careers and specialist opportunities at Seraphis IT and Data Solutions."
+        description="Explore current career opportunities at Seraphis IT and Data Solutions."
       />
 
       <section id="open-roles" className="section-padding bg-card scroll-mt-28">
@@ -17,15 +19,23 @@ const Careers = () => {
           <SectionHeading
             label="Careers"
             title="Current opportunities"
-            description="There are currently no published vacancies. New specialist roles will be added here as they become available."
+            description="Explore our current roles and open a position to review the complete responsibilities, requirements and application details."
           />
 
-          <div className="rounded-2xl border border-border bg-background p-10 text-center shadow-sm md:p-14">
-            <h3 className="text-2xl">No current openings</h3>
-            <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-              We are currently updating our specialist opportunities. Please check this page again for newly published roles.
-            </p>
-          </div>
+          {activeCareerRoles.length > 0 ? (
+            <div className="grid gap-6 lg:grid-cols-2 2xl:grid-cols-3">
+              {activeCareerRoles.map((role) => (
+                <CareerRoleCard key={role.id} role={role} />
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-2xl border border-border bg-background p-10 text-center shadow-sm md:p-14">
+              <h3 className="text-2xl">No current openings</h3>
+              <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+                There are currently no published vacancies. Please check this page again for newly published roles.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
