@@ -130,6 +130,53 @@ export const careerRoles: CareerRole[] = [
     ],
     active: true,
     datePosted: "2026-09-24"
+  },
+  {
+    id: "technical-project-manager",
+    slug: "technical-project-manager",
+    title: "Technical Project Manager",
+    practiceArea: "Project Delivery",
+    employmentType: "Contract",
+    contractDuration: "5 Years",
+    location: "South Africa",
+    workArrangement: "Hybrid / Project Dependent",
+    experienceLabel: "Minimum 5 years technical project management",
+    experienceFilter: "5+ years",
+    certificationTags: ["Project Management"],
+    summary:
+      "Lead and coordinate long-term technology and digital modernisation initiatives across software, infrastructure, cloud, databases, cybersecurity and systems integration.",
+    overview:
+      "Seraphis IT & Data Solutions is seeking an experienced Technical Project Manager to lead and coordinate the delivery of long-term technology and digital modernisation projects. The successful candidate will be responsible for managing technical projects involving IT systems, software development, web applications, website modernisation, infrastructure, databases, cloud and hosting environments, systems integration, cybersecurity, and digital transformation. This role requires a Project Manager who is comfortable operating within a technical delivery environment and coordinating developers, designers, infrastructure resources, security specialists, content specialists, clients, and other project stakeholders.",
+    responsibilities: [
+      "Plan, coordinate, and oversee technical projects from initiation through implementation, operation, and handover.",
+      "Develop and maintain project plans, schedules, milestones, dependencies, and delivery priorities.",
+      "Coordinate multidisciplinary technical teams across software development, infrastructure, databases, UI/UX, cybersecurity, content, and related disciplines.",
+      "Translate client requirements and contractual deliverables into structured technical workstreams.",
+      "Monitor and manage project scope, timelines, quality, risks, issues, and dependencies.",
+      "Coordinate software development, IT systems, and website modernisation activities.",
+      "Manage technical migrations, upgrades, deployments, and transition activities.",
+      "Facilitate requirements, planning, progress, and technical review meetings.",
+      "Maintain project documentation, action registers, risk registers, change records, and progress reports.",
+      "Coordinate testing, acceptance, deployment, and handover activities.",
+      "Manage stakeholder communication and ensure relevant stakeholders remain informed of project progress, risks, issues, and decisions.",
+      "Identify delivery risks and coordinate appropriate corrective actions.",
+      "Ensure technical deliverables remain aligned with contractual requirements and agreed standards.",
+      "Coordinate knowledge transfer, technical documentation, and project handover.",
+      "Support service-level and operational reporting throughout the project lifecycle.",
+      "Work with technical leads to ensure security, performance, reliability, and maintainability requirements are incorporated into project delivery."
+    ],
+    minimumRequirements: [
+      "Professional Project Management Certification — PMP, PRINCE2, or equivalent.",
+      "Minimum 5 years’ experience in technical project management.",
+      "Demonstrable experience leading IT systems projects, software development projects, migration projects and database management, and/or digital transformation projects.",
+      "Experience coordinating multidisciplinary technical teams.",
+      "Strong project planning, scheduling, risk management, and stakeholder management capabilities.",
+      "Ability to manage technical deliverables, dependencies, and project documentation.",
+      "Strong written and verbal communication skills.",
+      "Ability to work effectively with both technical and non-technical stakeholders."
+    ],
+    active: true,
+    datePosted: "2026-09-24"
   }
 ];
 
