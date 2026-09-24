@@ -1,9 +1,15 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const RetailAnalyticsScaling = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <SEO
+        title="Retail Analytics & Revenue Scaling | Seraphis IT"
+        description="Seraphis Retail Analytics turns sales, SKU, inventory, supplier and channel data into dashboards, forecasts, loss analysis and revenue actions."
+        canonicalPath="/retail-analytics"
+      />
       <section className="border-b bg-muted/30">
         <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="max-w-5xl">
