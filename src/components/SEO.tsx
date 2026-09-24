@@ -3,9 +3,12 @@ import { useEffect } from "react";
 interface SEOProps {
   title: string;
   description: string;
+  canonicalPath?: string;
 }
 
-const SEO = ({ title, description }: SEOProps) => {
+const CANONICAL_ORIGIN = "https://www.seraphis-it.com";
+
+const SEO = ({ title, description, canonicalPath }: SEOProps) => {
   useEffect(() => {
     document.title = title;
 
@@ -32,7 +35,27 @@ const SEO = ({ title, description }: SEOProps) => {
       document.head.appendChild(ogDescription);
     }
     ogDescription.setAttribute("content", description);
-  }, [title, description]);
+
+    const path = canonicalPath ?? window.location.pathname;
+    const normalizedPath = path === "/" ? "/" : path.replace(/\/+$/, "");
+    const canonicalUrl = `${CANONICAL_ORIGIN}${normalizedPath}`;
+
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = canonicalUrl;
+
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (!ogUrl) {
+      ogUrl = document.createElement("meta");
+      ogUrl.setAttribute("property", "og:url");
+      document.head.appendChild(ogUrl);
+    }
+    ogUrl.setAttribute("content", canonicalUrl);
+  }, [title, description, canonicalPath]);
 
   return null;
 };
