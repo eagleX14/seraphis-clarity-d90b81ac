@@ -1,6 +1,5 @@
-import { useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { AlertCircle, FileText, Loader2, Send } from "lucide-react";
+import { useState } from "react";
+import { AlertCircle, FileText, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,13 +17,10 @@ type CareerApplicationFormProps = {
 const fieldClass = "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
 const CareerApplicationForm = ({ role, general = false }: CareerApplicationFormProps) => {
-  const navigate = useNavigate();
-  const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [selectedExpertise, setSelectedExpertise] = useState<string[]>([]);
 
   const roleTitle = general ? "General Specialist Network Application" : role?.title ?? "Career Application";
-  const subject = useMemo(() => `Career Application | ${roleTitle}`, [roleTitle]);
 
   const validateFile = (file: File | null) => {
     if (!file) return true;
@@ -32,70 +28,54 @@ const CareerApplicationForm = ({ role, general = false }: CareerApplicationFormP
     return acceptedExtensions.includes(extension);
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     setSubmitError("");
 
-    const form = event.currentTarget;
-    const formData = new FormData(form);
+    const formData = new FormData(event.currentTarget);
     const cv = formData.get("CV / Resume") as File | null;
     const supporting = formData.get("Supporting Document") as File | null;
 
     if (!cv || cv.size === 0) {
+      event.preventDefault();
       setSubmitError("Please attach your CV before submitting.");
       return;
     }
 
     if (!validateFile(cv) || (supporting && supporting.size > 0 && !validateFile(supporting))) {
+      event.preventDefault();
       setSubmitError("CV and supporting documents must be PDF, DOC or DOCX files.");
       return;
     }
 
     const totalBytes = (cv?.size ?? 0) + (supporting?.size ?? 0);
     if (totalBytes > MAX_TOTAL_UPLOAD_BYTES) {
+      event.preventDefault();
       setSubmitError("Combined uploaded documents must be 10 MB or less.");
       return;
     }
 
     if (general && selectedExpertise.length === 0) {
+      event.preventDefault();
       setSubmitError("Please select at least one area of expertise.");
-      return;
-    }
-
-    setSubmitting(true);
-    try {
-      const firstName = String(formData.get("First Name") ?? "").trim();
-      const lastName = String(formData.get("Last Name") ?? "").trim();
-
-      formData.set("_subject", `${subject} | ${firstName} ${lastName}`.trim());
-      formData.set("_template", "table");
-      formData.set("_captcha", "false");
-      formData.set("Role Applied For", roleTitle);
-      if (general) formData.set("Expertise Areas", selectedExpertise.join(", "));
-
-      const response = await fetch("https://formsubmit.co/ajax/info@seraphis-it.com", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
-      });
-
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok || data?.success === false) {
-        throw new Error(data?.message || "Unable to submit your application right now.");
-      }
-
-      form.reset();
-      setSelectedExpertise([]);
-      navigate("/careers/application-received", { state: { roleTitle } });
-    } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : "Unable to submit your application right now.");
-    } finally {
-      setSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} encType="multipart/form-data" className="seraphis-card space-y-7" id="apply">
+    <form
+      action="https://formsubmit.co/info@seraphis-it.com"
+      method="POST"
+      onSubmit={handleSubmit}
+      encType="multipart/form-data"
+      className="seraphis-card space-y-7"
+      id="apply"
+    >
+      <input type="hidden" name="_subject" value={`Career Application | ${roleTitle}`} />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://seraphis-it.com/careers/application-received" />
+      <input type="hidden" name="Role Applied For" value={roleTitle} />
+      {general && <input type="hidden" name="Expertise Areas" value={selectedExpertise.join(", ")} />}
+
       <div className="space-y-2">
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Application</span>
         <h2 className="text-3xl">{general ? "Join our specialist network" : "Apply for this role"}</h2>
@@ -246,8 +226,8 @@ const CareerApplicationForm = ({ role, general = false }: CareerApplicationFormP
         </div>
       )}
 
-      <Button type="submit" variant="hero" size="lg" className="w-full sm:w-auto" disabled={submitting}>
-        {submitting ? <><Loader2 className="animate-spin" /> Submitting Application</> : <><Send /> Submit Application</>}
+      <Button type="submit" variant="hero" size="lg" className="w-full sm:w-auto">
+        <Send /> Submit Application
       </Button>
     </form>
   );
