@@ -18,6 +18,7 @@ const Careers = () => {
         <div className="section-container">
           <SectionHeading
             label="Careers"
+            level="h1"
             title="Current opportunities"
             description="Explore our current roles and open a position to review the complete responsibilities, requirements and application details."
           />
