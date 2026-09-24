@@ -7,7 +7,7 @@ import CareerRoleCard from "@/components/careers/CareerRoleCard";
 import { Button } from "@/components/ui/button";
 import { activeCareerRoles } from "@/data/careers";
 import { getProjectDuration, getPublicOverview } from "@/data/careerPresentation";
-import seraphisLogo from "@/assets/seraphis-logo.png";
+import seraphisLogo from "@/assets/seraphis-logo-optimized.webp";
 
 const CareerDetail = () => {
   const { slug } = useParams();
