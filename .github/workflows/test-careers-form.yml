@@ -36,7 +36,7 @@ jobs:
           set -euo pipefail
           CHROME_PATH="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser)"
           echo "Using browser: $CHROME_PATH"
-          cat > /tmp/test-careers-form.mjs <<'EOF'
+          cat > test-careers-form.mjs <<'EOF'
           import puppeteer from 'puppeteer-core';
 
           const browser = await puppeteer.launch({
@@ -98,4 +98,4 @@ jobs:
           console.log('SUCCESS_URL:', page.url());
           await browser.close();
           EOF
-          CHROME_PATH="$CHROME_PATH" node /tmp/test-careers-form.mjs
+          CHROME_PATH="$CHROME_PATH" node ./test-careers-form.mjs
