@@ -63,7 +63,9 @@ const CareerDetail = () => {
             <div className="glass-card grid gap-4 sm:grid-cols-2">
               <div className="flex gap-3"><Clock3 className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Timeline</div><div className="mt-1 font-semibold text-white">{getProjectDuration(role)}</div></div></div>
               <div className="flex gap-3"><MapPin className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Location</div><div className="mt-1 font-semibold text-white">{role.location}</div></div></div>
-              <div className="flex gap-3"><Users className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Positions</div><div className="mt-1 font-semibold text-white">{role.numberOfPositions ?? 1}</div></div></div>
+              {role.numberOfPositions && (
+                <div className="flex gap-3"><Users className="mt-0.5 text-seraphis-sky-light" size={19} /><div><div className="text-xs uppercase tracking-wider text-white/55">Positions</div><div className="mt-1 font-semibold text-white">{role.numberOfPositions}</div></div></div>
+              )}
               <div className="sm:col-span-2 border-t border-white/10 pt-4"><div className="text-xs uppercase tracking-wider text-white/55">Work arrangement</div><div className="mt-1 font-semibold text-white">{role.workArrangement}</div></div>
             </div>
           </div>
@@ -111,6 +113,34 @@ const CareerDetail = () => {
                     {role.preferredRequirements.map((item) => (
                       <div key={item} className="flex gap-3">
                         <CheckCircle2 size={18} className="mt-1 shrink-0 text-secondary" />
+                        <p>{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {role.projectEnvironment && role.projectEnvironment.length > 0 && (
+                <section className="space-y-5">
+                  <h2 className="text-3xl">Project environment</h2>
+                  <div className="grid gap-3 md:grid-cols-2">
+                    {role.projectEnvironment.map((item) => (
+                      <div key={item} className="flex gap-3 rounded-xl border border-border bg-background p-4">
+                        <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-primary" />
+                        <p className="text-sm">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {role.candidateProfile && role.candidateProfile.length > 0 && (
+                <section className="space-y-5">
+                  <h2 className="text-3xl">Who we're looking for</h2>
+                  <div className="space-y-3">
+                    {role.candidateProfile.map((item) => (
+                      <div key={item} className="flex gap-3">
+                        <CheckCircle2 size={18} className="mt-1 shrink-0 text-primary" />
                         <p>{item}</p>
                       </div>
                     ))}
