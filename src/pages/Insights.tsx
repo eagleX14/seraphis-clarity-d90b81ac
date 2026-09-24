@@ -9,13 +9,14 @@ const Insights = () => (
   <main>
     <SEO
       title="Insights | Seraphis IT and Data Solutions"
-      description="Read Seraphis insights on operational intelligence, Microsoft 365, Azure cloud data infrastructure, analytics, cybersecurity and industry-specific business problems."
+      description="Practical Seraphis insights on Microsoft 365, Azure, operational intelligence, retail analytics, cybersecurity and business data."
     />
 
     <section className="hero-shell">
       <div className="section-container py-16 md:py-20 lg:py-24">
         <SectionHeading
           label="Insights"
+          level="h1"
           title="Insights that turn technology into business value"
           description="Short, practical articles on Microsoft 365, Azure, analytics, cybersecurity and operational performance."
         />
