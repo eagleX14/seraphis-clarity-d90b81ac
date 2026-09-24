@@ -246,7 +246,7 @@ const Home = () => (
           {services.map((service) => (
             <div key={service.title} className="overflow-hidden rounded-3xl border border-border bg-white shadow-xl shadow-slate-200/50">
               <div className="relative h-48 overflow-hidden">
-                <img src={service.image} alt={service.title} className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                <img src={service.image} alt={service.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-seraphis-heading/80 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex h-12 w-12 items-center justify-center rounded-xl bg-secondary text-seraphis-heading shadow-lg">
                   <service.icon size={22} />
@@ -326,7 +326,7 @@ const Home = () => (
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {industries.map((industry) => (
             <div key={industry.name} className="overflow-hidden rounded-3xl border border-border bg-card shadow-lg">
-              <img src={industry.image} alt={industry.name} className="h-56 w-full object-cover" />
+              <img src={industry.image} alt={industry.name} loading="lazy" decoding="async" className="h-56 w-full object-cover" />
               <div className="space-y-3 p-6">
                 <h3 className="text-xl">{industry.name}</h3>
                 <p className="text-sm text-muted-foreground">{industry.desc}</p>
