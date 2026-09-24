@@ -38,8 +38,8 @@ const CareerDetail = () => {
       `<ul>${role.minimumRequirements.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`,
     ].join("");
 
-    const canonicalUrl = `https://www.seraphis-it.com/careers/${role.slug}`;
-    const logoUrl = new URL(seraphisLogo, "https://www.seraphis-it.com").href;
+    const canonicalUrl = `https://seraphis-it.com/careers/${role.slug}`;
+    const logoUrl = new URL(seraphisLogo, "https://seraphis-it.com").href;
     const jobLocation =
       role.location.includes("Gauteng")
         ? {
@@ -74,7 +74,7 @@ const CareerDetail = () => {
       hiringOrganization: {
         "@type": "Organization",
         name: "Seraphis IT and Data Solutions (Pty) Ltd",
-        sameAs: "https://www.seraphis-it.com",
+        sameAs: "https://seraphis-it.com",
         logo: logoUrl,
       },
       jobLocation,
