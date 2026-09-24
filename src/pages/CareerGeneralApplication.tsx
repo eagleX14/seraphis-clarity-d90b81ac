@@ -8,6 +8,8 @@ const CareerGeneralApplication = () => (
     <SEO
       title="Join Our Specialist Network | Careers | Seraphis IT and Data Solutions"
       description="Submit your specialist technology profile for future Seraphis project opportunities across cloud, cybersecurity, business applications and managed infrastructure."
+      robots="noindex,follow"
+      canonicalPath="/careers/general-application"
     />
     <section className="hero-shell">
       <div className="section-container py-14 md:py-16 lg:py-20">
