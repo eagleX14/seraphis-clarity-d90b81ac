@@ -1,4 +1,5 @@
 import SectionHeading from "@/components/SectionHeading";
+import SEO from "@/components/SEO";
 import aboutImg from "@/assets/about-workspace.jpg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,11 @@ import { CheckCircle } from "lucide-react";
 
 const About = () => (
   <main>
+    <SEO
+      title="About Seraphis IT & Data Solutions | South Africa"
+      description="Learn how Seraphis combines operational intelligence, governed data, Microsoft cloud and analytics to improve business visibility and performance."
+      canonicalPath="/about"
+    />
     {/* Hero */}
     <section className="section-padding bg-card">
       <div className="section-container">
