@@ -42,13 +42,13 @@ export const careerRoles: CareerRole[] = [
     contractDuration: "5 Years",
     location: "Gauteng, South Africa",
     workArrangement: "Hybrid — On-site & Remote",
-    experienceLabel: "Approximately 5 years relevant development experience",
+    experienceLabel: "Minimum 5 years relevant development experience",
     experienceFilter: "5+ years",
     certificationTags: [],
     summary:
-      "Design, develop, test, deploy and maintain full-stack web applications, databases, APIs, integrations and Azure-based solutions.",
+      "Design, develop, test, deploy and maintain full-stack web applications, databases, APIs, integrations and cloud-based solutions.",
     overview:
-      "The Full Stack Web Developer will be responsible for designing, developing, testing, deploying and maintaining web applications and supporting systems. The role covers front-end and back-end development, databases, APIs, integrations, cloud services, application security and performance optimisation.",
+      "Design, develop, test, deploy and maintain web applications and supporting systems across front-end development, back-end services, databases, APIs, integrations, cloud services, application security and performance optimisation.",
     responsibilities: [
       "Develop and maintain responsive web applications.",
       "Build and maintain APIs and back-end services.",
@@ -59,74 +59,21 @@ export const careerRoles: CareerRole[] = [
       "Troubleshoot and optimise application performance.",
       "Implement testing and quality-assurance practices.",
       "Use Git and modern software-development workflows.",
-      "Participate in code reviews and technical discussions.",
       "Maintain technical documentation and development standards.",
       "Support Azure-based deployments and cloud infrastructure.",
-      "Collaborate with stakeholders to understand requirements and deliver technical solutions.",
-      "Contribute to the continuous improvement of Seraphis development practices and project delivery."
+      "Collaborate with technical and non-technical stakeholders to deliver working solutions."
     ],
     minimumRequirements: [
       "BSc in Computer Science, Information Technology, Engineering, or a related field; or equivalent practical experience.",
-      "Approximately 5 years of experience in web application development and/or database-related development.",
-      "Strong full-stack development capabilities.",
+      "Minimum 5 years of experience in web application development and/or database-related development.",
+      "Strong full-stack development capability.",
       "Proficiency in HTML, CSS, JavaScript/TypeScript and responsive web development.",
       "Strong back-end and API development experience.",
       "Solid understanding of application architecture and databases.",
       "Experience with SQL and database administration.",
       "Experience with Git and modern development tools.",
       "Ability to write clean, maintainable and well-tested code.",
-      "Strong problem-solving and troubleshooting skills.",
-      "Ability to work independently and collaboratively in a hybrid environment."
-    ],
-    preferredRequirements: [
-      "Microsoft Azure experience.",
-      "Azure SQL and other Azure database services.",
-      "Azure Database Administration certification.",
-      "Microsoft SQL Server certification or equivalent experience.",
-      "Cloud architecture.",
-      "Docker and containerisation.",
-      "CI/CD and DevOps practices.",
-      "Infrastructure as Code.",
-      "AI and machine-learning application integration.",
-      "Data engineering and analytics platforms.",
-      "Enterprise systems and third-party integrations.",
-      "Application security and secure software-development practices."
-    ],
-    technicalSkills: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "TypeScript",
-      "Responsive web development",
-      "Back-end development",
-      "REST APIs",
-      "SQL",
-      "NoSQL",
-      "Database administration",
-      "Git",
-      "Microsoft Azure",
-      "Azure SQL",
-      "Docker",
-      "CI/CD",
-      "DevOps",
-      "Application security"
-    ],
-    projectEnvironment: [
-      "Business web applications and portals.",
-      "Data management platforms.",
-      "API and systems integrations.",
-      "Azure cloud solutions.",
-      "Business intelligence and analytics platforms.",
-      "Database-driven applications.",
-      "Business automation solutions.",
-      "AI and data-driven applications.",
-      "Custom enterprise technology solutions."
-    ],
-    candidateProfile: [
-      "Able to take a business requirement and turn it into a reliable working solution.",
-      "Comfortable working across the technology stack and taking ownership of development tasks.",
-      "Able to solve problems independently while collaborating effectively with technical and non-technical stakeholders.",
-      "Candidates who do not meet every listed qualification but can demonstrate strong practical experience, a solid portfolio and the ability to deliver production-quality solutions are encouraged to apply."
+      "Strong problem-solving and troubleshooting skills."
     ],
     active: true,
     datePosted: "2026-09-24"
@@ -144,36 +91,104 @@ export const careerRoles: CareerRole[] = [
     experienceFilter: "5+ years",
     certificationTags: ["Project Management"],
     summary:
-      "Lead and coordinate long-term technology and digital modernisation initiatives across software, infrastructure, cloud, databases, cybersecurity and systems integration.",
+      "Lead and coordinate technology and digital modernisation delivery across IT systems, software, infrastructure, databases, cloud and cybersecurity.",
     overview:
-      "Seraphis IT & Data Solutions is seeking an experienced Technical Project Manager to lead and coordinate the delivery of long-term technology and digital modernisation projects. The successful candidate will be responsible for managing technical projects involving IT systems, software development, web applications, website modernisation, infrastructure, databases, cloud and hosting environments, systems integration, cybersecurity, and digital transformation. This role requires a Project Manager who is comfortable operating within a technical delivery environment and coordinating developers, designers, infrastructure resources, security specialists, content specialists, clients, and other project stakeholders.",
+      "Lead and coordinate long-term technology and digital modernisation delivery across IT systems, software development, web applications, website modernisation, infrastructure, databases, cloud and hosting environments, systems integration, cybersecurity and digital transformation.",
     responsibilities: [
-      "Plan, coordinate, and oversee technical projects from initiation through implementation, operation, and handover.",
-      "Develop and maintain project plans, schedules, milestones, dependencies, and delivery priorities.",
-      "Coordinate multidisciplinary technical teams across software development, infrastructure, databases, UI/UX, cybersecurity, content, and related disciplines.",
+      "Plan, coordinate and oversee technical projects from initiation through implementation and handover.",
+      "Develop and maintain project plans, schedules, milestones, dependencies and delivery priorities.",
+      "Coordinate multidisciplinary technical teams across software, infrastructure, databases, UI/UX, cybersecurity and content.",
       "Translate client requirements and contractual deliverables into structured technical workstreams.",
-      "Monitor and manage project scope, timelines, quality, risks, issues, and dependencies.",
-      "Coordinate software development, IT systems, and website modernisation activities.",
-      "Manage technical migrations, upgrades, deployments, and transition activities.",
-      "Facilitate requirements, planning, progress, and technical review meetings.",
-      "Maintain project documentation, action registers, risk registers, change records, and progress reports.",
-      "Coordinate testing, acceptance, deployment, and handover activities.",
-      "Manage stakeholder communication and ensure relevant stakeholders remain informed of project progress, risks, issues, and decisions.",
-      "Identify delivery risks and coordinate appropriate corrective actions.",
-      "Ensure technical deliverables remain aligned with contractual requirements and agreed standards.",
-      "Coordinate knowledge transfer, technical documentation, and project handover.",
-      "Support service-level and operational reporting throughout the project lifecycle.",
-      "Work with technical leads to ensure security, performance, reliability, and maintainability requirements are incorporated into project delivery."
+      "Manage scope, timelines, quality, risks, issues and dependencies.",
+      "Coordinate migrations, upgrades, deployments, testing, acceptance and handover activities.",
+      "Maintain project documentation, action registers, risk registers, change records and progress reports.",
+      "Manage stakeholder communication and technical delivery reviews.",
+      "Coordinate knowledge transfer and technical documentation."
     ],
     minimumRequirements: [
       "Professional Project Management Certification — PMP, PRINCE2, or equivalent.",
       "Minimum 5 years’ experience in technical project management.",
-      "Demonstrable experience leading IT systems projects, software development projects, migration projects and database management, and/or digital transformation projects.",
+      "Experience leading IT systems, software development, migration, database management and/or digital transformation projects.",
       "Experience coordinating multidisciplinary technical teams.",
-      "Strong project planning, scheduling, risk management, and stakeholder management capabilities.",
-      "Ability to manage technical deliverables, dependencies, and project documentation.",
+      "Strong project planning, scheduling, risk management and stakeholder management capabilities.",
+      "Ability to manage technical deliverables, dependencies and project documentation.",
       "Strong written and verbal communication skills.",
-      "Ability to work effectively with both technical and non-technical stakeholders."
+      "Ability to work effectively with technical and non-technical stakeholders."
+    ],
+    active: true,
+    datePosted: "2026-09-24"
+  },
+  {
+    id: "senior-content-communications-specialist",
+    slug: "senior-content-communications-specialist",
+    title: "Senior Content & Communications Specialist",
+    practiceArea: "Content & Communications",
+    employmentType: "Contract",
+    contractDuration: "5 Years",
+    location: "South Africa",
+    workArrangement: "Hybrid",
+    experienceLabel: "Minimum 5 years digital content experience",
+    experienceFilter: "5+ years",
+    certificationTags: [],
+    summary:
+      "Develop clear, professional digital content and content strategy for web and digital communication platforms.",
+    overview:
+      "Develop, structure and maintain high-quality digital content and content strategy across web and digital communication platforms. Work with design, technical and business teams to turn complex information into clear, usable communication.",
+    responsibilities: [
+      "Develop and maintain digital and website content.",
+      "Write and edit website copy, service information and digital communications.",
+      "Develop and maintain content strategies.",
+      "Review and improve content for clarity, consistency and usability.",
+      "Support content migration, restructuring and website modernisation.",
+      "Translate technical and business information into clear audience-focused content.",
+      "Coordinate content with design and development teams.",
+      "Maintain tone, terminology, editorial quality and content standards."
+    ],
+    minimumRequirements: [
+      "B. Degree or National Diploma in Communication, Marketing, Journalism, or equivalent.",
+      "Minimum 5 years’ professional experience in digital copywriting and content strategy.",
+      "Strong professional writing and editing capability.",
+      "Demonstrable experience producing digital or web content.",
+      "Ability to structure complex information clearly for different audiences.",
+      "Strong attention to detail.",
+      "Ability to work effectively with technical, design and business stakeholders."
+    ],
+    active: true,
+    datePosted: "2026-09-24"
+  },
+  {
+    id: "senior-graphic-ui-ux-designer",
+    slug: "senior-graphic-ui-ux-designer",
+    title: "Senior Graphic & UI/UX Designer",
+    practiceArea: "Design & UX",
+    employmentType: "Contract",
+    contractDuration: "5 Years",
+    location: "South Africa",
+    workArrangement: "Hybrid",
+    experienceLabel: "Minimum 5 years graphic design and UI/UX experience",
+    experienceFilter: "5+ years",
+    certificationTags: [],
+    summary:
+      "Create professional graphic design and UI/UX layouts for modern websites, digital platforms and user-facing interfaces.",
+    overview:
+      "Create and maintain professional visual designs and UI/UX layouts for websites and digital platforms. Work with developers, content specialists and stakeholders to turn requirements into clear, usable and implementation-ready designs.",
+    responsibilities: [
+      "Design website and digital-platform interfaces.",
+      "Develop UI layouts, page structures and reusable visual components.",
+      "Create professional graphics and digital communication assets.",
+      "Translate requirements into clear visual solutions.",
+      "Create responsive designs for desktop, tablet and mobile environments.",
+      "Develop wireframes, mock-ups and interface concepts.",
+      "Maintain visual consistency across digital products.",
+      "Collaborate with developers and content specialists during implementation."
+    ],
+    minimumRequirements: [
+      "B. Degree or National Diploma in Graphic Design, UI/UX Design, or equivalent.",
+      "Minimum 5 years’ professional experience in graphic design and UI/UX layouts.",
+      "Strong portfolio demonstrating professional graphic design and digital interface work.",
+      "Strong understanding of visual hierarchy, typography, layout and interface design.",
+      "Experience designing for web and digital environments.",
+      "Ability to work effectively with developers, content specialists and other project stakeholders."
     ],
     active: true,
     datePosted: "2026-09-24"
@@ -188,12 +203,14 @@ export const certificationFilters = ["Microsoft", "Cybersecurity", "ISO / COBIT"
 
 export const generalExpertiseAreas = [
   "Software Engineering",
+  "Project Delivery",
+  "Content & Communications",
+  "Design & UX",
   "Microsoft Business Applications",
   "Azure & Cloud",
   "Cybersecurity",
   "Governance, Risk & Compliance",
   "Microsoft Teams & Communications",
   "Managed Infrastructure",
-  "Mimecast",
-  "Project Delivery"
+  "Mimecast"
 ];
