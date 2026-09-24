@@ -64,7 +64,32 @@ jobs:
           elif [[ -z "$before" || "$before" =~ ^0+$ ]]; then
             changed=true
           else
-            if git diff --name-only "$before" "${{ github.sha }}" | grep -Eq '^(src/data/careers\.ts|src/pages/CareerDetail\.tsx|public/sitemap\.xml|scripts/google-indexing\.mjs)$'; then
+            if git diff --name-only "$before" "${{ github.sha }}" | grep -Eq '^(src/data/careers\.ts|src/pages/CareerDetail\.tsx|public/sitemap\.xml|scripts/google-indexing\.mjs|scripts/indexnow-jobs\.mjs|public/97cbe91b1338e97ed4a45e81d955835f\.txt|\.github/workflows/deploy\.yml); then
+              changed=true
+            fi
+
+            if git cat-file -e "$before:public/sitemap.xml" 2>/dev/null; then
+              git show "$before:public/sitemap.xml" > /tmp/previous-sitemap.xml
+            fi
+          fi
+
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+
+      - name: Notify Google JobPosting Indexing API
+        if: steps.job_changes.outputs.changed == 'true'
+        env:
+          GOOGLE_INDEXING_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_INDEXING_SERVICE_ACCOUNT_JSON }}
+          CURRENT_SITEMAP: public/sitemap.xml
+          PREVIOUS_SITEMAP: /tmp/previous-sitemap.xml
+        run: node scripts/google-indexing.mjs
+
+      - name: Notify IndexNow search engines
+        if: steps.job_changes.outputs.changed == 'true'
+        env:
+          CURRENT_SITEMAP: public/sitemap.xml
+          PREVIOUS_SITEMAP: /tmp/previous-sitemap.xml
+        run: node scripts/indexnow-jobs.mjs
+; then
               changed=true
             fi
 
