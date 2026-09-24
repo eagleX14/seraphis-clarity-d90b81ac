@@ -9,7 +9,7 @@ const CareerApplicationReceived = () => {
 
   return (
     <main>
-      <SEO title="Application Received | Careers | Seraphis IT and Data Solutions" description="Your application to Seraphis IT and Data Solutions has been received." />
+      <SEO title="Application Received | Careers | Seraphis IT and Data Solutions" description="Your application to Seraphis IT and Data Solutions has been received." robots="noindex,follow" canonicalPath="/careers/application-received" />
       <section className="section-padding section-surface min-h-[62vh] flex items-center">
         <div className="section-container max-w-2xl text-center">
           <div className="seraphis-card space-y-6">
