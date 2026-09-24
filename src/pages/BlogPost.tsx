@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
+import StructuredData from "@/components/StructuredData";
 import { blogPosts } from "@/data/blogPosts";
 import { ArrowLeft } from "lucide-react";
 import NotFound from "./NotFound";
@@ -13,9 +14,48 @@ const BlogPost = () => {
     return <NotFound />;
   }
 
+  const canonicalUrl = `https://seraphis-it.com/insights/${post.slug}`;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: [new URL(post.image, "https://seraphis-it.com").href],
+    mainEntityOfPage: canonicalUrl,
+    author: {
+      "@type": "Organization",
+      name: "Seraphis IT and Data Solutions (Pty) Ltd",
+      url: "https://seraphis-it.com/about",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Seraphis IT and Data Solutions (Pty) Ltd",
+      url: "https://seraphis-it.com",
+    },
+    inLanguage: "en-ZA",
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://seraphis-it.com/" },
+      { "@type": "ListItem", position: 2, name: "Insights", item: "https://seraphis-it.com/insights" },
+      { "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl },
+    ],
+  };
+
   return (
     <main>
-      <SEO title={`${post.title} | Seraphis Insights`} description={post.excerpt} />
+      <SEO
+        title={`${post.title} | Seraphis Insights`}
+        description={post.excerpt}
+        canonicalPath={`/insights/${post.slug}`}
+        type="article"
+        image={post.image}
+      />
+      <StructuredData id={`article-${post.slug}`} data={articleSchema} />
+      <StructuredData id={`breadcrumbs-${post.slug}`} data={breadcrumbSchema} />
 
       <section className="hero-shell">
         <div className="section-container py-12 md:py-16">
@@ -32,7 +72,7 @@ const BlogPost = () => {
 
       <section className="bg-background">
         <div className="section-container py-10">
-          <img src={post.image} alt={post.title} className="max-h-[520px] w-full rounded-2xl object-cover shadow-lg" />
+          <img src={post.image} alt={post.title} loading="lazy" decoding="async" className="max-h-[520px] w-full rounded-2xl object-cover shadow-lg" />
         </div>
       </section>
 
