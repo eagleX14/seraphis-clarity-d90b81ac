@@ -82,3 +82,10 @@ jobs:
           CURRENT_SITEMAP: public/sitemap.xml
           PREVIOUS_SITEMAP: /tmp/previous-sitemap.xml
         run: node scripts/google-indexing.mjs
+
+      - name: Notify IndexNow search engines
+        if: steps.job_changes.outputs.changed == 'true'
+        env:
+          CURRENT_SITEMAP: public/sitemap.xml
+          PREVIOUS_SITEMAP: /tmp/previous-sitemap.xml
+        run: node scripts/indexnow-jobs.mjs
