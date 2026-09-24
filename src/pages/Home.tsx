@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
+import StructuredData from "@/components/StructuredData";
+import seraphisLogo from "@/assets/seraphis-logo.png";
 import heroDashboard from "@/assets/hero-dashboard.jpg";
 import platformImg from "@/assets/platform-architecture.jpg";
 import m365Hero from "@/assets/m365-hero.jpg";
@@ -98,12 +100,27 @@ const industries = [
   { name: "Finance", image: financeImg, desc: "Client data, access control, reporting, approvals and security posture." },
 ];
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Seraphis IT and Data Solutions (Pty) Ltd",
+  url: "https://seraphis-it.com",
+  logo: new URL(seraphisLogo, "https://seraphis-it.com").href,
+  email: "info@seraphis-it.com",
+  areaServed: {
+    "@type": "Country",
+    name: "South Africa",
+  },
+};
+
 const Home = () => (
   <main>
     <SEO
-      title="Seraphis IT & Data Solutions | Operational Intelligence, Microsoft 365, Azure & Analytics"
-      description="Seraphis helps organisations improve business data, Microsoft 365 licensing, Azure cloud foundations, cybersecurity, operational intelligence, analytics and cost-benefit decision-making."
+      title="Seraphis IT & Data Solutions | Microsoft 365, Azure, Data & Operational Intelligence"
+      description="Seraphis helps South African organisations improve Microsoft 365, Azure cloud, cybersecurity, data analytics and operational intelligence."
+      canonicalPath="/"
     />
+    <StructuredData id="organization" data={organizationSchema} />
 
     <section className="hero-shell">
       <div className="section-container py-16 md:py-20 lg:py-24">
