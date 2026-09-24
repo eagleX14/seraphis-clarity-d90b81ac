@@ -7,6 +7,7 @@ import CareerRoleCard from "@/components/careers/CareerRoleCard";
 import { Button } from "@/components/ui/button";
 import { activeCareerRoles } from "@/data/careers";
 import { getProjectDuration, getPublicOverview } from "@/data/careerPresentation";
+import seraphisLogo from "@/assets/seraphis-logo.png";
 
 const CareerDetail = () => {
   const { slug } = useParams();
@@ -21,18 +22,70 @@ const CareerDetail = () => {
     const script = document.createElement("script");
     script.id = scriptId;
     script.type = "application/ld+json";
+    const escapeHtml = (value: string) =>
+      value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    const description = [
+      `<p>${escapeHtml(getPublicOverview(role))}</p>`,
+      "<p>Core responsibilities:</p>",
+      `<ul>${role.responsibilities.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`,
+      "<p>Minimum requirements:</p>",
+      `<ul>${role.minimumRequirements.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`,
+    ].join("");
+
+    const canonicalUrl = `https://www.seraphis-it.com/careers/${role.slug}`;
+    const logoUrl = new URL(seraphisLogo, "https://www.seraphis-it.com").href;
+    const jobLocation =
+      role.location.includes("Gauteng")
+        ? {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressRegion: "Gauteng",
+              addressCountry: "ZA",
+            },
+          }
+        : {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressCountry: "ZA",
+            },
+          };
+
     script.text = JSON.stringify({
       "@context": "https://schema.org/",
       "@type": "JobPosting",
       title: role.title,
-      description: `${getPublicOverview(role)} ${role.minimumRequirements.join(" ")}`,
+      description,
+      identifier: {
+        "@type": "PropertyValue",
+        name: "Seraphis IT and Data Solutions (Pty) Ltd",
+        value: role.id,
+      },
       datePosted: role.datePosted,
+      employmentType: "CONTRACTOR",
+      url: canonicalUrl,
       hiringOrganization: {
         "@type": "Organization",
         name: "Seraphis IT and Data Solutions (Pty) Ltd",
         sameAs: "https://www.seraphis-it.com",
+        logo: logoUrl,
       },
-      applicantLocationRequirements: { "@type": "Country", name: "South Africa" },
+      jobLocation,
+      applicantLocationRequirements: {
+        "@type": "Country",
+        name: "South Africa",
+      },
+      experienceRequirements: {
+        "@type": "OccupationalExperienceRequirements",
+        monthsOfExperience: 60,
+      },
       directApply: true,
     });
     document.head.appendChild(script);
@@ -46,7 +99,11 @@ const CareerDetail = () => {
 
   return (
     <main>
-      <SEO title={`${role.title} | Careers | Seraphis IT and Data Solutions`} description={role.summary} />
+      <SEO
+        title={`${role.title} | Careers | Seraphis IT and Data Solutions`}
+        description={role.summary}
+        canonicalPath={`/careers/${role.slug}`}
+      />
 
       <section className="hero-shell">
         <div className="section-container py-12 md:py-16 lg:py-20">
