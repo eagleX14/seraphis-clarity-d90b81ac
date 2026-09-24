@@ -27,6 +27,9 @@ const Navbar = () => {
           <img
             src={seraphisLogo}
             alt="Seraphis IT and Data Solutions"
+            width={56}
+            height={56}
+            decoding="async"
             className="h-12 w-12 rounded-lg object-contain md:h-14 md:w-14"
           />
           <div className="min-w-0 leading-tight">
