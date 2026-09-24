@@ -1,0 +1,42 @@
+name: Test Careers Application Form
+
+on:
+  push:
+    branches: ['main']
+    paths:
+      - '.github/workflows/test-careers-form.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  submit-demo-application:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create demo CV attachment
+        run: |
+          cat > demo-cv.doc <<'EOF'
+          {\rtf1\ansi\deff0
+          {\fonttbl{\f0 Arial;}}
+          \f0\fs24
+          DEMO APPLICATION - FORM TEST ONLY\par
+          Candidate: Demo Test Applicant\par
+          Role: Full Stack Web Developer\par
+          Purpose: Verify Seraphis careers application delivery and CV attachment handling.\par
+          This is not a real employment application.\par
+          }
+          EOF
+
+      - name: Submit demo application
+        shell: bash
+        run: |
+          set -euo pipefail
+          response_file="$(mktemp)"
+          http_code="$(
+            curl -sS               -o "$response_file"               -w "%{http_code}"               -X POST "https://formsubmit.co/ajax/info@seraphis-it.com"               -H "Accept: application/json"               -F "_subject=Career Application | Full Stack Web Developer | DEMO TEST APPLICANT"               -F "_template=table"               -F "_captcha=false"               -F "Role Applied For=Full Stack Web Developer"               -F "First Name=Demo"               -F "Last Name=Test Applicant"               -F "Email=demo-applicant@example.com"               -F "Mobile Number=+27 00 000 0000"               -F "Current Location=Gauteng / Johannesburg"               -F "Years of Relevant Experience=5 years - demo value"               -F "Current Availability=Immediately available"               -F "Notice Period=Immediate - demo value"               -F "Expected Rate / Compensation=Demo test only"               -F "Right to Work in South Africa=Other - DEMO TEST ONLY"               -F "Relevant Certifications=Demo test - none"               -F "Additional Message=DEMO APPLICATION ONLY. This submission was generated to test the Seraphis careers application form and email/CV delivery. Please disregard as a candidate application."               -F "Recruitment Consent=Confirmed"               -F "Information Accuracy Confirmation=Confirmed"               -F "CV / Resume=@demo-cv.doc;type=application/msword"
+          )"
+          echo "HTTP_STATUS=$http_code"
+          cat "$response_file"
+          echo
+          test "$http_code" -ge 200 -a "$http_code" -lt 300
+          grep -Eq '"success"[[:space:]]*:[[:space:]]*(true|"true")' "$response_file"
