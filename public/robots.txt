@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.seraphis-it.com/sitemap.xml
+Sitemap: https://seraphis-it.com/sitemap.xml
