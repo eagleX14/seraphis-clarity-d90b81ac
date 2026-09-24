@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -7,26 +8,47 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Solutions from "./pages/Solutions";
-import OperationalIntelligence from "./pages/OperationalIntelligence";
-import Industries from "./pages/Industries";
-import HowWeWork from "./pages/HowWeWork";
-import Insights from "./pages/Insights";
-import Microsoft365 from "./pages/Microsoft365";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
-import AzureCloud from "./pages/AzureCloud";
-import BlogPost from "./pages/BlogPost";
-import DiagnosticQuestionnaire from "./pages/DiagnosticQuestionnaire";
-import RetailAnalyticsPrivacy from "./pages/RetailAnalyticsPrivacy";
-import RetailAnalyticsSupport from "./pages/RetailAnalyticsSupport";
-import CspRetailAnalyticsMarketing from "./pages/CspRetailAnalyticsMarketing";
-import RetailAnalyticsScaling from "./pages/RetailAnalyticsScaling";
-import Careers from "./pages/Careers";
-import CareerDetail from "./pages/CareerDetail";
-import CareerGeneralApplication from "./pages/CareerGeneralApplication";
-import CareerApplicationReceived from "./pages/CareerApplicationReceived";
+
+const About = lazy(() => import("./pages/About"));
+const Solutions = lazy(() => import("./pages/Solutions"));
+const OperationalIntelligence = lazy(() => import("./pages/OperationalIntelligence"));
+const Industries = lazy(() => import("./pages/Industries"));
+const HowWeWork = lazy(() => import("./pages/HowWeWork"));
+const Insights = lazy(() => import("./pages/Insights"));
+const Microsoft365 = lazy(() => import("./pages/Microsoft365"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const AzureCloud = lazy(() => import("./pages/AzureCloud"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const DiagnosticQuestionnaire = lazy(() => import("./pages/DiagnosticQuestionnaire"));
+const RetailAnalyticsPrivacy = lazy(() => import("./pages/RetailAnalyticsPrivacy"));
+const RetailAnalyticsSupport = lazy(() => import("./pages/RetailAnalyticsSupport"));
+const CspRetailAnalyticsMarketing = lazy(() => import("./pages/CspRetailAnalyticsMarketing"));
+const RetailAnalyticsScaling = lazy(() => import("./pages/RetailAnalyticsScaling"));
+const Careers = lazy(() => import("./pages/Careers"));
+const CareerDetail = lazy(() => import("./pages/CareerDetail"));
+const CareerGeneralApplication = lazy(() => import("./pages/CareerGeneralApplication"));
+const CareerApplicationReceived = lazy(() => import("./pages/CareerApplicationReceived"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const queryClient = new QueryClient();
 
@@ -39,6 +61,7 @@ const App = () => (
         <div className="flex min-h-screen flex-col">
           <Navbar />
           <div className="flex-1">
+            <Suspense fallback={<div className="min-h-[50vh]" aria-hidden="true" />}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
@@ -73,6 +96,7 @@ const App = () => (
           <Route path="/retail-analytics-scaling/" element={<RetailAnalyticsScaling />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            </Suspense>
           </div>
           <WhatsAppButton />
           <Footer />
